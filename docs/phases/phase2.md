@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture and Media CRUD (3 days)
 
 ## Rails
 ### Models
@@ -9,24 +9,24 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* MediaIndex
+  - MediaIndexItem
+* MediaForm
 
 ### Stores
-* Note
+* Media
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
+* ApiActions.receiveAllMedia
+* ApiActions.receiveSingleMedia
+* ApiActions.deleteMedia
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllMedia
+* ApiUtil.fetchSingleMedia
+* ApiUtil.createMedia
+* ApiUtil.editMedia
+* ApiUtil.destroyMedia
 
 ## Gems/Libraries
 * Flux Dispatcher

@@ -1,46 +1,41 @@
 # Schema Information
 
-## notes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
+## media
+column name      | data type          | details
+-----------------|--------------------|-----------------------
+id               | integer            | not null, primary key
+title            | string             | not null
+description      | text               | not null
+author_id        | integer            | not null, foreign key (references users), indexed
+media            | has_attached_file  | not null
+commentable_id   |
+commentable_type |
+archived         | boolean            | not null, default: false
 
-## notebooks
+## follows
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
+followee_id | integer   | not null, foreign key (references users), indexed
+follower_id | string    | not null, foreign key (references users), indexed
 description | string    | 
 
-## reminders
+## notifications
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+author_id   | integer   | not null, foreign key (references users), indexed
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
+description | string    | not null
 prev_id     | integer   | foreign key (references reminders), indexed
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+## comments
+column name       | data type | details
+------------------|-----------|-----------------------
+id                | integer   | not null, primary key
+body              | text    | not null
+commentable_id    | integer   | not null, foreign key (references commentable), indexed, unique [tag_id]
+commentable_type  | integer   | not null
 
 ## users
 column name     | data type | details

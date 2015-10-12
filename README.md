@@ -36,7 +36,7 @@ elements out more. I would set up controllers and models as well as the JSON API
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and CRUDs (3 days)
+### Phase 2: Flux Architecture and Media CRUDs (3 days)
 
 Phase 2 will focus on setting up Flux, the React Router, and React View structure.
 Start with utils, actions, and stores. Actions will correspond to CRUD functionality and
@@ -67,7 +67,6 @@ Phase 5 improves on notifications. Notifications will now be optional based on f
 will only notify should he/she choose to share it. Some garbage collection will be added to 
 delete inactive users/pictures after a set time and reseed db.  
 
-[Details][phase-five]
 
 ### Phase 6: Styling Cleanup and Seeding (1 day)
 
@@ -87,4 +86,3 @@ Tons of CSS and Seeding DB with real world information or using Faker.
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md

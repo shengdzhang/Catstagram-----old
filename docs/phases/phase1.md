@@ -4,8 +4,7 @@
 ### Models
 * User
 * Post
-* Pictures - images with paperclip gem
-* Comments
+* Media
 
 ### Controllers
 * UsersController (create, new, show, edit, update, index)
@@ -20,8 +19,8 @@
 * users/update.erb
 * users/show.html.erb
 * session/new.html.erb
-* picture/show.json.jbuilder
-* picture/new.json.jbuilder
+* media/show.json.jbuilder
+* media/new.json.jbuilder
 
 ## Flux
 ### Views (React Components)
