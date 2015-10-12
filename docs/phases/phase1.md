@@ -3,18 +3,25 @@
 ## Rails
 ### Models
 * User
-* Note
+* Post
+* Pictures - images with paperclip gem
+* Comments
 
 ### Controllers
-* UsersController (create, new)
+* UsersController (create, new, show, edit, update, index)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* CommentsController (create, destroy)
+* Api::PicturesController (create, destroy, index, show, update)
 
 ### Views
 * users/new.html.erb
+* users/index.html.erb
+* users/edit.erb
+* users/update.erb
+* users/show.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* picture/show.json.jbuilder
+* picture/new.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -27,3 +34,4 @@
 
 ## Gems/Libraries
 * BCrypt
+* paperclip
