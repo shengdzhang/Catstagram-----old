@@ -4,7 +4,6 @@ class CreateMedia < ActiveRecord::Migration
       t.string :title, null: false
       t.text :description
       t.integer :author_id, null: false
-      t.has_attached_file :video
       t.integer :commentable_id
       t.string :commentable_type
       t.timestamps null: false

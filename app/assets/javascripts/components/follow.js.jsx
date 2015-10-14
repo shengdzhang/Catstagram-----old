@@ -4,7 +4,7 @@ var FollowButton = React.createClass ({
   },
   render: function () {
     return (
-      <button onClick={this.handleClick()}>Follow</button>
+      <button onClick={this.handleClick()} className="follow">Follow</button>
     );
   }
 });

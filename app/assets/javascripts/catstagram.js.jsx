@@ -11,7 +11,10 @@ var App = React.createClass({
         <div>
           <Nav/>
           <br/>
-            <h1>Catstagram</h1>
+            <h1>
+              <div class="logo">Catstagram
+              </div>
+            </h1>
             <br/>
               {this.props.children}
           <br/>

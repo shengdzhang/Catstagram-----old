@@ -1,0 +1,46 @@
+nav {
+  margin-top: -45px;
+  margin-left: 5px;
+  background: rgba(179,220,237,1);
+  background: rgba(239,197,202,1);
+  background: -moz-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(239,197,202,1)), color-stop(29%, rgba(210,75,90,1)), color-stop(62%, rgba(186,39,55,1)), color-stop(100%, rgba(241,142,153,1)));
+  background: -webkit-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
+  background: -o-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
+  background: -ms-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
+  background: linear-gradient(to right, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99', GradientType=1 );
+  width: 100px;
+  height: 1000px;
+  float: left;
+  position: fixed;
+}
+
+.navbar {
+
+  float: right;
+  list-style: none;
+  width:100%;
+}
+
+.navbar > li:first-child {
+    margin-top: 100px;
+}
+
+.navbar > li {
+  width: 90%;
+  margin-left: 5px;
+  float: left;
+  padding-left: 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.navbar >li:hover {
+  color: cornflowerblue;
+  cursor: pointer;
+}
