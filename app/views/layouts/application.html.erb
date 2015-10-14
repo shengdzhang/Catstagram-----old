@@ -3,15 +3,17 @@
 <head>
   <title>Finalproject</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header>
 <% if logged_in? %>
-  <%= current_user.username %>
-  <%= button_to "Sign Out", session_url, :method => :delete %>
+  Welcome <%= current_user.username %> !
+  <br/>
+  <%= button_to "Log Out", session_url, method: :delete%>
 <% end %>
+</header>
 
 <%= render "layouts/errors" %>
 

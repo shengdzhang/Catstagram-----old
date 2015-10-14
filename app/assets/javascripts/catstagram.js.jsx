@@ -11,8 +11,9 @@ var App = React.createClass({
         <div>
           <Nav/>
           <br/>
-          <SignButtons/>
-          <header><h1>Catstagram</h1></header>
+            <h1>Catstagram</h1>
+            <br/>
+              {this.props.children}
           <br/>
           <br/>
           <br/>
@@ -45,8 +46,6 @@ var App = React.createClass({
           <br/>
           <br/>
           <br/>
-          <br/>
-          {this.props.children}
         </div>
     );
   }
@@ -54,6 +53,7 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
+    <IndexRoute component={UserHomepage}/>
   </Route>
 );
 

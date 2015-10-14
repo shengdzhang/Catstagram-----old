@@ -17,8 +17,16 @@
 
 }
 
+header {
+  text-align: center;
+}
+
+.buttondiv {
+  text-align: center;
+}
 .button {
-  text-slign: center;
+  text-align: center;
+  padding: 10px;
 }
 
 h1 {
@@ -53,6 +61,8 @@ h1 {
 }
 
 nav {
+  margin-top: -45px;
+  margin-left: -10px;
   background: rgba(179,220,237,1);
   background: rgba(239,197,202,1);
   background: -moz-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
@@ -65,7 +75,7 @@ nav {
   width: 100px;
   height: 1000px;
   float: left;
-  position: fixed;
+  position: relative;
   /*position: relative;*/
 }
 
@@ -77,11 +87,12 @@ nav {
 }
 
 .navbar > li:first-child {
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .navbar > li {
-  width: 90%
+  width: 90%;
+  margin-left: 5px;
   float: left;
   padding-left: 5px;
   margin-top: 30px;
