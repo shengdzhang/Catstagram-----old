@@ -15,6 +15,11 @@
  *= require_self
  */
 
+#content {
+  margin-top: 45px;
+  min-height: 1000px;
+  background-color: #FBDFDF;
+}
 
 header {
   margin-left: 20%;
@@ -38,15 +43,19 @@ h1 {
   background-color: #FFFFFF;
 }
 
-.logo {
-  margin-left: 50px;
+#searchbar {
+  margin-left: 300px;
+}
+
+#search {
+  margin-left: 10px;
 }
 
 .border {
   background-color: #FFFFFF;
   margin-left: -20%;
   padding-bottom: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 h2 {
@@ -86,7 +95,7 @@ h3.heading {
   margin: auto;
 }
 
-.homewrapper {
+#homewrapper {
   margin-left: 20%;
 }
 

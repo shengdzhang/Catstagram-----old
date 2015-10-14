@@ -12,42 +12,12 @@ var App = React.createClass({
           <Nav/>
           <br/>
             <h1>
-              <div class="logo">Catstagram
-              </div>
+              Catstagram
+              <Search/>
+              <div className="border"></div>
             </h1>
             <br/>
               {this.props.children}
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
           <br/>
         </div>
     );

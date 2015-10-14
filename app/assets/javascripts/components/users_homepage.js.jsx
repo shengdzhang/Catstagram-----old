@@ -20,8 +20,7 @@ var UserHomepage = React.createClass ({
   },
   render: function () {
     return (
-      <div className="homewrapper">
-        <div className="border"></div>
+      <div id="homewrapper">
         <h3 className="heading"> Suggested Follows </h3>
         <ul className='group'>
             {
