@@ -6,17 +6,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<header>
-  <div class="head">
-    <% if logged_in? %>
-      <%= current_user.username %>
-      <br/>
-      <%= button_to "Log Out", session_url, method: :delete%>
-    <% end %>
-  </div>
-</header>
-
+  <% if logged_in? %>
+  <header>
+    <div class="head">
+    <%= current_user.username %>
+    <script type="text/javascript">
+      CURRENT_USER_ID = <%= current_user.id %>
+    </script>
+    <br/>
+    <%= button_to "Log Out", session_url, method: :delete%>
+    <div class="head">
+  </header>
+  <% end %>
 <%= render "layouts/errors" %>
 
 <%= yield %>

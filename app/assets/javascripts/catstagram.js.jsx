@@ -13,7 +13,6 @@ var App = React.createClass({
           <br/>
             <h1>
               Catstagram
-              <Search/>
               <div className="border"></div>
             </h1>
             <br/>

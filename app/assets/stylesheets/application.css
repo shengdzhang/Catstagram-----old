@@ -16,7 +16,7 @@
  */
 
 #content {
-  margin-top: 45px;
+  margin-top: 5px;
   min-height: 1000px;
   background-color: #FBDFDF;
 }
@@ -93,6 +93,7 @@ h3.heading {
 .formwrap {
   width:30%;
   margin: auto;
+  margin-top: 200px;
 }
 
 #homewrapper {
