@@ -16,9 +16,18 @@
  */
 
 #content {
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.pagewrapper {
   min-height: 1000px;
-  background-color: #FBDFDF;
+  margin-top: -19px;
+  background: url(https://ogchronic.files.wordpress.com/2013/09/happy-kitty.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: -8px -240px;
 }
 
 header {
@@ -26,6 +35,7 @@ header {
 }
 
 .head {
+  margin-top: 10px;
   margin-left: 675px;
 }
 
@@ -38,17 +48,32 @@ header {
 }
 
 h1 {
-  margin-left: 20%;
-  margin-top: -55px;
+  width: 100%;
+  margin-top: -50px;
   background-color: #FFFFFF;
+}
+
+h1 >.headwrap {
+  margin-left: 20%;
 }
 
 #searchbar {
   margin-left: 300px;
+  position: relative;
 }
 
-#search {
-  margin-left: 10px;
+#searchbar > input {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  overflow: visible;
+  vertical-align: top;
+  border-radius: 10px;
+}
+
+#searchbar > input:focus {
+  text-align: left;
+  outline: none;
 }
 
 .border {
@@ -118,4 +143,39 @@ h3.heading {
   height: 30px;
   margin-top: -10px;
   border-radius: 10%;
+}
+
+.dropdown {
+  margin-left: 22px;
+  position: absolute;
+  left: -1px;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown > li {
+  border: 1px solid #ccc;
+  width: 204px;
+  color: #000;
+}
+
+#searchbar>input:focus ~ .dropdown{
+    opacity: 1;
+}
+
+li:hover .dropdown{
+  display:block;
+}
+
+.dropdown > li:hover {
+  background-color: #eee;
+  cursor: pointer;
 }

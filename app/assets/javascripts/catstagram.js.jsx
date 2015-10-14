@@ -10,14 +10,16 @@ var App = React.createClass({
     return (
         <div>
           <Nav/>
-          <br/>
             <h1>
+              <div className="headwrap">
               Catstagram
+              <Search/>
               <div className="border"></div>
+              </div>
             </h1>
-            <br/>
+            <div className="pagewrapper">
               {this.props.children}
-          <br/>
+            </div>
         </div>
     );
   }

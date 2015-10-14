@@ -1,4 +1,3 @@
-
 UsersActions = {
   getAllUsers: function(users){
     AppDispatcher.dispatch({
