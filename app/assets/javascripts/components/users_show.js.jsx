@@ -1,40 +1,28 @@
 /*global React */
-/*global UsersStore */
+/*global MediaStore */
 /* global ApiUtil */
 
 var UserShowpage = React.createClass ({
 
   getInitialState: function () {
-    return {users: UsersStore.all()};
+    return {user: this.props.user, media: []};
   },
   componentDidMount: function () {
-    UsersStore.addChangeListener(this.onChange);
-    ApiUtil.getUsers();
+    MediaStore.addChangeListener(this.onChange);
+    ApiUtil.getMedia(this.state.user);
   },
   onChange: function (e) {
-    this.setState({users: UsersStore.all()});
+    this.setState({media: MediaStore.all()});
   },
   componentWillUnmount: function () {
-    UsersStore.removeChangeListener(this.onChange);
+    MediaStore.removeChangeListener(this.onChange);
   },
   render: function () {
-    // var currentUser = "";
-    // for(var i = 0; i < this.state.users.length; i++) {
-    //   if(this.state.users[i].id === CURRENT_USER_ID) {
-    //     currentUser = this.state.users[i];
-    //   }
-    // }
+
     return (
-      <div id="homewrapper">
-        <h3 className="heading"> Suggested Follows </h3>
-        <ul className='group'>
-            {
-              this.state.users.map(function (user, idx){
-                  return <li className='suggest' key={idx}> {user.username} <FollowButton/> </li>
-              })
-            }
-          </ul>
+      <div>
+
       </div>
-    )
+    );
   }
 });
