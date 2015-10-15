@@ -9,12 +9,7 @@ var App = React.createClass({
   render: function(){
     return (
         <div>
-          <h1>
-            <div className="headwrap">
-              Catstagram
-              <Search/>
-            </div>
-          </h1>
+          <Nav/>
           <div className="pagewrapper">
             {this.props.children}
           </div>

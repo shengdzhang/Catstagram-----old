@@ -6,8 +6,8 @@ var Nav = React.createClass ({
         {
           <nav className='group'>
             <ul className='navbar'>
-              <li> Home </li>
-              <li> Profile </li>
+              <li> Catstagram </li>
+              <li> <Search/> </li>
               <li> Notifications </li>
             </ul>
           </nav>
