@@ -1,14 +1,40 @@
 /* global React */
 var Nav = React.createClass ({
+  mixins: [ReactRouter.History],
+
+  getInitialState: function () {
+    return {user: UsersStore.getUser(CURRENT_USER_ID)};
+  },
+  componentDidMount: function () {
+    UsersStore.addChangeListener(this.onChange);
+    ApiUtil.getUsers();
+  },
+  onChange: function () {
+    this.setState({user: UsersStore.getUser(CURRENT_USER_ID)});
+  },
+  componentWillUnmount: function () {
+    UsersStore.removeChangeListener(this.onChange);
+  },
+  handleClickProfile: function () {
+    var url = "users/" + (CURRENT_USER_ID);
+    this.history.pushState(null, url);
+  },
+  handleClickHome: function () {
+    this.history.pushState(null, '/');
+  },
   render: function () {
+    var username = "";
+    if(this.state.user) {
+      username = this.state.user.username;
+    }
     return (
       <div>
         {
           <nav className='group'>
             <ul className='navbar'>
-              <li> Catstagram </li>
+              <li onClick={this.handleClickHome}> Catstagram </li>
               <li> <Search/> </li>
-              <li> Notifications </li>
+              <li onClick={this.handleClickProfile}> {username} </li>
             </ul>
           </nav>
         }

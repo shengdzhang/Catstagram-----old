@@ -31,8 +31,8 @@ var Search = React.createClass ({
       }
     }
     return (
-      <div id="searchbar">
-        {placeholder}<input onChange={this.handleChange} name="search" type="text" value={this.state.searchQuery} placeholder=" Search"/>
+      <div id="searchbar" className="group">
+        <div id="searchglass">{placeholder}</div><input onChange={this.handleChange} name="search" type="text" value={this.state.searchQuery} placeholder=" Search"/>
         <ul className="dropdown">
           {
               names.map(function(l, idx){

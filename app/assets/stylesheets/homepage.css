@@ -1,0 +1,46 @@
+#homewrapper {
+  width: 100%;
+  height: inherit;
+}
+
+.heading {
+  width: 200px;
+  margin:auto;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.suggest {
+  list-style: none;
+  border: 2px solid black;
+  width: 600px;
+  margin: auto;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.suggest > a {
+  color: cornflowerblue;
+}
+
+.suggest > a:hover {
+  cursor: pointer;
+}
+
+.follow {
+  float: right;
+  width: 50px;
+  height: 30px;
+  margin-top: -10px;
+  border-radius: 10%;
+  outline: none;
+}
+
+.follow:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  transition: 1s;
+}

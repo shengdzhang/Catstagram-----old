@@ -14,7 +14,7 @@ var UserShowpage = React.createClass ({
     ApiUtil.getMedia(this.state.userId);
   },
   onUserChange: function (e) {
-    var user = UsersStore.all();
+    var user = UsersStore.getShowUser();
     this.setState({user: user});
   },
   onMediaChange: function (e) {
@@ -24,26 +24,35 @@ var UserShowpage = React.createClass ({
     MediaStore.removeChangeListener(this.onChange);
     UsersStore.removeChangeListener(this.onUserChange);
   },
+  uploadMedia: function () {
+    if(this.state.user && this.state.user.id === CURRENT_USER_ID) {
+      return (
+        <div>
+          Hello
+        </div>
+      )
+    }
+  },
   render: function () {
     var name = "";
     if(this.state.user){
-      name = this.state.user[0].username;
-      debugger;
+      name = this.state.user.username;
     }
     return (
-      <div>
-        <ul>
-          {
-            this.state.media.map(function (media, idx){
-                return <li className='media' key={idx}><a> {media} </a></li>
-            }.bind(this))
-          }
-        </ul>
-        <div>
+      <div id="showwrapper">
+        <div className="profile">
           {
             name
           }
+          {this.uploadMedia()}
         </div>
+        <ul className="medialist">
+          {
+            this.state.media.map(function (media, idx){
+                return <li className='media' key={idx}><a> {media.link} </a></li>
+            }.bind(this))
+          }
+        </ul>
       </div>
     );
   }

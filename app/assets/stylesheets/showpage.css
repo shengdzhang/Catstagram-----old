@@ -1,0 +1,26 @@
+#showwrapper{
+
+}
+
+.profile {
+  padding-top: 50px;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 70px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+
+.medialist {
+  width: 800px;
+  margin: auto;
+}
+
+.medialist > li {
+  width: 30%;
+  border: 1px solid black;
+  float: left;
+  height: 100px;
+  margin: 1%;
+}

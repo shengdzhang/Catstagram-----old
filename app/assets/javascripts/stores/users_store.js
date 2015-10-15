@@ -10,7 +10,7 @@
   };
 
   var resetUser = function(user){
-    _users = [user];
+    _user = user;
     UsersStore.emit(CHANGE_EVENT)
   };
 
@@ -24,6 +24,9 @@
           return _users[i];
         }
       }
+    },
+    getShowUser: function () {
+      return $.extend({},_user);
     },
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);

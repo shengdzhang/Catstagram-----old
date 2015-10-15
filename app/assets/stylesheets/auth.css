@@ -1,0 +1,22 @@
+#signup-message a{
+  color: #75FA42;
+}
+
+#signin-message a{
+  color: #FF5107;
+}
+
+.signing {
+  color: #666699;
+  margin: auto;
+  width: 200px;
+  padding: 2px;
+  border: 1px solid black;
+  height: 15px;
+}
+
+.formwrap {
+  width:30%;
+  margin: auto;
+  margin-top: 100px;
+}
