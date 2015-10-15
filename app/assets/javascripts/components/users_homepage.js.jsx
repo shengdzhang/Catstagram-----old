@@ -3,6 +3,7 @@
 /* global ApiUtil */
 
 var UserHomepage = React.createClass ({
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return {users: UsersStore.all()};
@@ -17,6 +18,10 @@ var UserHomepage = React.createClass ({
   componentWillUnmount: function () {
     UsersStore.removeChangeListener(this.onChange);
   },
+  clickHandler: function (id, e) {
+    var url = "users/" + (id+1);
+    this.history.pushState(null, url);
+  },
   render: function () {
     // var currentUser = "";
     // for(var i = 0; i < this.state.users.length; i++) {
@@ -30,8 +35,8 @@ var UserHomepage = React.createClass ({
         <ul className='group'>
             {
               this.state.users.map(function (user, idx){
-                  return <li className='suggest' key={idx}> {user.username} <FollowButton/> </li>
-              })
+                  return <li className='suggest' key={idx}><a onClick={this.clickHandler.bind(this, idx)}> {user.username} </a><FollowButton/> </li>
+              }.bind(this))
             }
           </ul>
       </div>

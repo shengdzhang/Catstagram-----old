@@ -9,17 +9,15 @@ var App = React.createClass({
   render: function(){
     return (
         <div>
-          <Nav/>
-            <h1>
-              <div className="headwrap">
+          <h1>
+            <div className="headwrap">
               Catstagram
               <Search/>
-              <div className="border"></div>
-              </div>
-            </h1>
-            <div className="pagewrapper">
-              {this.props.children}
             </div>
+          </h1>
+          <div className="pagewrapper">
+            {this.props.children}
+          </div>
         </div>
     );
   }
@@ -28,6 +26,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={UserHomepage}/>
+    <Route path="users/:userId" component={UserShowpage}/>
   </Route>
 );
 

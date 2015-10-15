@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'pry-rails'
 gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
 # Use Capistrano for deployment

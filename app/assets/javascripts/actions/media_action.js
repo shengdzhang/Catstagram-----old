@@ -1,7 +1,7 @@
 MediaActions = {
-  getAllMedia: function(media){
+  getMedia: function(media){
     AppDispatcher.dispatch({
-      actionType: UsersConstants.FETCH_MEDIA,
+      actionType: MediaConstants.FETCH_MEDIA,
       media: media
     });
   }
