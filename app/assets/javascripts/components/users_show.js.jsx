@@ -27,7 +27,7 @@ var UserShowpage = React.createClass ({
   render: function () {
     var name = "";
     if(this.state.user){
-      name = this.state.user.username;
+      name = this.state.user[0].username;
       debugger;
     }
     return (
