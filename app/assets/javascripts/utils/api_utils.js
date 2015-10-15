@@ -33,7 +33,40 @@ var ApiUtil = {
         MediaActions.getMedia(media);
       }
     });
+  },
+  getFollowees: function () {
+    $.ajax ({
+      url: "/follows",
+      method: "GET",
+      datatype: "JSON",
+      success: function (follows) {
+        FollowsActions.getFollows(follows);
+      }
+    });
+  },
+
+  createFollow: function (idx) {
+    $.ajax ({
+      url: "/follows",
+      method: "POST",
+      data: {"followee_id": idx},
+      datatype: "JSON",
+      success: function (follow) {
+        FollowsActions.updateSingleFollow(follow);
+      }
+    });
+  },
+
+  removeFollow: function (idx) {
+    $.ajax ({
+      url: "/follows/"+idx,
+      method: "DELETE",
+      data: {"followee_id": idx},
+      datatype: "JSON",
+      success: function (follow) {
+        debugger;
+        FollowsActions.deleteSingleFollow(follow);
+      }
+    });
   }
-
-
 };

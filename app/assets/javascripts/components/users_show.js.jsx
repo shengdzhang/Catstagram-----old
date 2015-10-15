@@ -21,11 +21,11 @@ var UserShowpage = React.createClass ({
     this.setState({media: MediaStore.all()});
   },
   componentWillUnmount: function () {
-    MediaStore.removeChangeListener(this.onChange);
+    MediaStore.removeChangeListener(this.onMediaChange);
     UsersStore.removeChangeListener(this.onUserChange);
   },
   uploadMedia: function () {
-    if(this.state.user && this.state.user.id === CURRENT_USER_ID) {
+    if(this.props.location.query.user) {
       return (
         <div>
           Hello
@@ -33,6 +33,14 @@ var UserShowpage = React.createClass ({
       )
     }
   },
+
+  componentWillReceiveProps: function(val) {
+      var id = val.params.userId;
+      ApiUtil.getSingleUser(id);
+      ApiUtil.getMedia(id);
+      this.setState({userId: id});
+  },
+
   render: function () {
     var name = "";
     if(this.state.user){
@@ -44,8 +52,8 @@ var UserShowpage = React.createClass ({
           {
             name
           }
-          {this.uploadMedia()}
         </div>
+          {this.uploadMedia()}
         <ul className="medialist">
           {
             this.state.media.map(function (media, idx){

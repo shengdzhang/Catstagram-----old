@@ -3,21 +3,22 @@ var Nav = React.createClass ({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    return {user: UsersStore.getUser(CURRENT_USER_ID)};
+    return {user: UsersStore.getCurrentUser()};
   },
   componentDidMount: function () {
     UsersStore.addChangeListener(this.onChange);
     ApiUtil.getUsers();
   },
   onChange: function () {
-    this.setState({user: UsersStore.getUser(CURRENT_USER_ID)});
+    this.setState({user: UsersStore.getCurrentUser()});
   },
   componentWillUnmount: function () {
     UsersStore.removeChangeListener(this.onChange);
   },
   handleClickProfile: function () {
+    var current = {user: 'current'};
     var url = "users/" + (CURRENT_USER_ID);
-    this.history.pushState(null, url);
+    this.history.pushState(null, url, current);
   },
   handleClickHome: function () {
     this.history.pushState(null, '/');

@@ -3,15 +3,18 @@
   var _users = [];
   var CHANGE_EVENT = 'changed';
   var _user = {};
+  var _currentUser = {};
 
   var resetUsers = function(users){
     _users = users.slice();
+    _currentUser = UsersStore.getUser(CURRENT_USER_ID);
+    _users.splice(_users.indexOf(_currentUser), 1);
     UsersStore.emit(CHANGE_EVENT);
   };
 
   var resetUser = function(user){
     _user = user;
-    UsersStore.emit(CHANGE_EVENT)
+    UsersStore.emit(CHANGE_EVENT);
   };
 
   var UsersStore = root.UsersStore = $.extend({}, EventEmitter.prototype, {
@@ -24,6 +27,9 @@
           return _users[i];
         }
       }
+    },
+    getCurrentUser: function () {
+      return $.extend({}, _currentUser);
     },
     getShowUser: function () {
       return $.extend({},_user);
