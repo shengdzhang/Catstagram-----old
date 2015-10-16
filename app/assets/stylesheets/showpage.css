@@ -12,15 +12,23 @@
   border: 1px solid black;
 }
 
-.medialist {
+.media-list {
   width: 800px;
   margin: auto;
 }
 
-.medialist > li {
+.media-list > li {
   width: 30%;
   border: 1px solid black;
   float: left;
-  height: 100px;
+  height: 200px;
   margin: 1%;
+}
+
+.user-show-img {
+  height: 200px;
+}
+
+.user-show-img:hover {
+  cursor: pointer;
 }

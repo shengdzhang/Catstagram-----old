@@ -1,0 +1,34 @@
+.media-show {
+  padding-top: 70px;
+  width: 1200px;
+  margin: auto;
+}
+
+.media-show > img {
+  width: 640px;
+  height: 480px;
+  float: left;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+
+.media-comments {
+  float: right;
+  width: 550px;
+  height: 480px;
+}
+
+.comments-list {
+  width: inherit;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+
+.comment-wrap {
+  margin-top: 5px;
+  width: inherit;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 10px;
+}

@@ -25,7 +25,6 @@ var UserShowpage = React.createClass ({
     UsersStore.removeChangeListener(this.onUserChange);
   },
   handleMedia: function () {
-    debugger;
     this.history.pushState(null, "media/new");
   },
   uploadMedia: function () {
@@ -45,6 +44,10 @@ var UserShowpage = React.createClass ({
       this.setState({userId: id});
   },
 
+  pathMedia: function (id, e) {
+    var url = "media/" + id;
+    this.history.pushState(null, url);
+  },
   render: function () {
     var name = "";
     if(this.state.user){
@@ -58,10 +61,10 @@ var UserShowpage = React.createClass ({
           }
         </div>
           {this.uploadMedia()}
-        <ul className="medialist">
+        <ul className="media-list">
           {
-            this.state.media.map(function (media, idx){
-                return <li className='media' key={idx}><a> {media.link} </a></li>
+            this.state.media.map(function (media){
+                return <li className='media' key={media.id}><a onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
             }.bind(this))
           }
         </ul>

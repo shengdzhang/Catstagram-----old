@@ -23,6 +23,7 @@ var routes = (
     <IndexRoute component={UserHomepage}/>
     <Route path="users/:userId" component={UserShowpage}/>
     <Route path="media/new" component={MediaForm}/>
+    <Route path="media/:mediumId" component={MediaShowpage}/>
   </Route>
 );
 

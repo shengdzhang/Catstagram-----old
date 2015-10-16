@@ -80,5 +80,16 @@ var ApiUtil = {
         MediaActions.createMedium(medium);
       }
     });
+  },
+
+  fetchSingleMedia: function (id) {
+    $.ajax ({
+      url: "/api/media/" + id,
+      method: "GET",
+      datatype: "JSON",
+      success: function(medium) {
+        MediaActions.fetchMedium(medium);
+      }
+    });
   }
 };

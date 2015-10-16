@@ -16,4 +16,9 @@ class Api::MediaController < ApplicationController
     @media.save!
     render json: @media
   end
+
+  def show
+    @medium = Medium.find(params[:id])
+    render json: @medium
+  end
 end

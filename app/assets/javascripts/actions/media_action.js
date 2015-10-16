@@ -10,5 +10,11 @@ MediaActions = {
       actionType: MediaConstants.CREATE_MEDIUM,
       medium: medium
     });
+  },
+  fetchMedium: function(medium) {
+    AppDispatcher.dispatch ({
+      actionType: MediaConstants.FETCH_MEDIUM,
+      medium: medium
+    });
   }
 };
