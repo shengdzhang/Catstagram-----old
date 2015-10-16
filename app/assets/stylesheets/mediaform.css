@@ -1,0 +1,58 @@
+.media-form {
+  padding-top: 70px;
+  width: 1000px;
+  margin: auto;
+}
+
+.media-title {
+    /*padding: 10px;*/
+    margin-bottom: 20px;
+    width: 220px;
+    height: 30px;
+    font-size: 14px;
+    margin: auto;
+    /*margin-left: 30%;*/
+}
+
+.media-desc {
+  border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /*margin-left: 30%;*/
+  width: 230px;
+  height: 445px;
+  font-size: 18px;
+}
+
+.media-img {
+  float: right;
+  width: 700px;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.media-submit {
+  width: 150px;
+  height: 20px;
+  margin-left: 15%;
+}
+
+.media-upload-button {
+  width: 150px;
+  height: 20px;
+  margin-top: 25px;
+  margin-left: 40%;
+}
+
+.media-form .column1 {
+  width: 25%;
+  padding-left: 4%;
+  height: 540px;
+  float: left;
+}
+
+.media-form .column2 {
+  width: 70%;
+  height: 540px;
+  float: right;
+}

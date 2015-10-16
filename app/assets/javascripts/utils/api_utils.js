@@ -70,11 +70,11 @@ var ApiUtil = {
     });
   },
 
-  createMedia: function (url) {
+  createMedia: function (url, title, description) {
     $.ajax ({
       url: "/api/media",
       method: "POST",
-      data: {"url": url},
+      data: {"url": url, "title": title, "description": description},
       datatype: "JSON",
       success: function(medium) {
         MediaActions.createMedium(medium);

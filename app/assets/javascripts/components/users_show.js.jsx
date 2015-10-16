@@ -3,7 +3,7 @@
 /* global ApiUtil */
 
 var UserShowpage = React.createClass ({
-
+  mixins: [ReactRouter.History],
   getInitialState: function () {
     return {userId: parseInt(this.props.params.userId), media: []};
   },
@@ -24,11 +24,15 @@ var UserShowpage = React.createClass ({
     MediaStore.removeChangeListener(this.onMediaChange);
     UsersStore.removeChangeListener(this.onUserChange);
   },
+  handleMedia: function () {
+    debugger;
+    this.history.pushState(null, "media/new");
+  },
   uploadMedia: function () {
     if(this.props.location.query.user) {
       return (
         <div>
-          <UpImage/>
+          <button onClick={this.handleMedia} > Upload Media </button>
         </div>
       )
     }

@@ -26,19 +26,15 @@ ActiveRecord::Schema.define(version: 20151013175750) do
   add_index "follows", ["follower_id", "followee_id"], name: "index_follows_on_follower_id_and_followee_id", unique: true, using: :btree
 
   create_table "media", force: :cascade do |t|
-    t.string   "title",            null: false
+    t.string   "title",       null: false
     t.text     "description"
-    t.integer  "author_id",        null: false
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "link",             null: false
-    t.string   "extension"
+    t.integer  "author_id",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "link",        null: false
   end
 
   add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
-  add_index "media", ["commentable_id"], name: "index_media_on_commentable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

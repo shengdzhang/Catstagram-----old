@@ -1,4 +1,9 @@
 class Api::MediaController < ApplicationController
+
+  def new
+
+  end
+
   def index
     @user = User.find(params[:user_id].to_i)
     @media = @user.media
@@ -6,7 +11,7 @@ class Api::MediaController < ApplicationController
   end
 
   def create
-    @media = Medium.new({title: "hi", link: params[:url]})
+    @media = Medium.new({title: params[:title], link: params[:url], description: params[:description]})
     @media.author_id = current_user.id
     @media.save!
     render json: @media
