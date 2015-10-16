@@ -1,6 +1,9 @@
 /* global ApiActions */
 /* global UsersActions */
 /* global MediaActions */
+/* global FollowsActions */
+/* global CommentsActions */
+
 var ApiUtil = {
   getUsers: function(){
     $.ajax({
@@ -89,6 +92,18 @@ var ApiUtil = {
       datatype: "JSON",
       success: function(medium) {
         MediaActions.fetchMedium(medium);
+      }
+    });
+  },
+
+  fetchComments: function (id) {
+    $.ajax ({
+      url: "/api/comments",
+      method: "GET",
+      data: {"media_id": id},
+      datatype: "JSON",
+      success: function(comments) {
+        CommentsActions.getComments(comments);
       }
     });
   }

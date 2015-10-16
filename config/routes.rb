@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :media
+    resources :comments
   end
   resources :users, only: [:new, :create, :update, :show, :index]
 
