@@ -14,11 +14,10 @@
   var removeFollower = function (follow) {
     var remove = false;
     for (var i = 0; i < _follows.length; i++) {
-
-    }
-    if (id !== -1) {
-      _follows.splice(id, 1);
-      FollowsStore.emit(CHANGE_EVENT);
+      if (follow.id === _follows[i].id) {
+        _follows.splice(i, 1);
+        FollowsStore.emit(CHANGE_EVENT);
+      }
     }
   };
 

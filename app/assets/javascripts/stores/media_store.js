@@ -7,6 +7,10 @@
     _media = media;
     MediaStore.emit(CHANGE_EVENT);
   };
+  var createMedium = function(medium) {
+    _media.push(medium);
+    MediaStore.emit(CHANGE_EVENT);
+  };
 
   var MediaStore = root.MediaStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
@@ -22,6 +26,9 @@
       switch(payload.actionType){
         case MediaConstants.FETCH_MEDIA:
           resetMedia(payload.media);
+          break;
+        case MediaConstants.CREATE_MEDIUM:
+          createMedium(payload.medium);
           break;
       }
     })

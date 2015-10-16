@@ -23,17 +23,6 @@ var ApiUtil = {
     });
   },
 
-  getMedia: function (id) {
-    $.ajax ({
-      url: "/api/media/",
-      method: "GET",
-      data: {"user_id": id},
-      datatype: "JSON",
-      success: function(media) {
-        MediaActions.getMedia(media);
-      }
-    });
-  },
   getFollowees: function () {
     $.ajax ({
       url: "/follows",
@@ -64,8 +53,31 @@ var ApiUtil = {
       data: {"followee_id": idx},
       datatype: "JSON",
       success: function (follow) {
-        debugger;
         FollowsActions.deleteSingleFollow(follow);
+      }
+    });
+  },
+
+  getMedia: function (id) {
+    $.ajax ({
+      url: "/api/media/",
+      method: "GET",
+      data: {"user_id": id},
+      datatype: "JSON",
+      success: function(media) {
+        MediaActions.getMedia(media);
+      }
+    });
+  },
+
+  createMedia: function (url) {
+    $.ajax ({
+      url: "/api/media",
+      method: "POST",
+      data: {"url": url},
+      datatype: "JSON",
+      success: function(medium) {
+        MediaActions.createMedium(medium);
       }
     });
   }

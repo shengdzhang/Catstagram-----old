@@ -4,4 +4,11 @@ class Api::MediaController < ApplicationController
     @media = @user.media
     render json: @media
   end
+
+  def create
+    @media = Medium.new({title: "hi", link: params[:url]})
+    @media.author_id = current_user.id
+    @media.save!
+    render json: @media
+  end
 end

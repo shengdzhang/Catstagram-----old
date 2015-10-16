@@ -4,7 +4,7 @@
 
 var UserHomepage = React.createClass ({
   mixins: [ReactRouter.History],
-
+  
   getInitialState: function () {
     return {users: UsersStore.all(), currentFollowees: FollowsStore.all()};
   },

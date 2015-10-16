@@ -28,7 +28,7 @@ var UserShowpage = React.createClass ({
     if(this.props.location.query.user) {
       return (
         <div>
-          Hello
+          <UpImage/>
         </div>
       )
     }
