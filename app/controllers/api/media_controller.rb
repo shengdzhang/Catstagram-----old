@@ -1,9 +1,5 @@
 class Api::MediaController < ApplicationController
 
-  def new
-
-  end
-
   def index
     @user = User.find(params[:user_id].to_i)
     @media = @user.media

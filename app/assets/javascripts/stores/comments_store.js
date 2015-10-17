@@ -7,18 +7,18 @@
     _comments = comments;
     CommentsStore.emit(CHANGE_EVENT);
   };
-  var updateComments = function (comment) {
-    _comments.push(comment);
-    CommentsStore.emit(CHANGE_EVENT);
-  };
   var removeComment = function (comment) {
-    var remove = false;
     for (var i = 0; i < _comments.length; i++) {
       if (comment.id === _comments[i].id) {
         _comments.splice(i, 1);
         CommentsStore.emit(CHANGE_EVENT);
       }
     }
+  };
+  var updateComments = function (comment) {
+    removeComment(comment);
+    _comments.push(comment);
+    CommentsStore.emit(CHANGE_EVENT);
   };
 
   var CommentsStore = root.CommentsStore = $.extend({}, EventEmitter.prototype, {

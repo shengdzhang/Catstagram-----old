@@ -1,0 +1,11 @@
+{
+  "browser": true,
+  "node": false,
+  "undef": true,
+  "predef": [
+    "$",
+    "React",
+    "AppDispatcher",
+    "FollowsConstants"
+  ]
+}

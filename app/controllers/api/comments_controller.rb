@@ -7,7 +7,10 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-
+    @comment = Comment.new({commentable_type: params[:type], commentable_id: params[:type_id], body: params[:body]})
+    @comment.author_id = current_user.id
+    @comment.save!
+    render json: @comment
   end
 
   def update

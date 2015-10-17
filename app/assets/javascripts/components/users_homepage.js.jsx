@@ -4,7 +4,7 @@
 
 var UserHomepage = React.createClass ({
   mixins: [ReactRouter.History],
-  
+
   getInitialState: function () {
     return {users: UsersStore.all(), currentFollowees: FollowsStore.all()};
   },
@@ -24,7 +24,7 @@ var UserHomepage = React.createClass ({
     FollowsStore.removeChangeListener(this.onFollowerChange);
   },
   clickHandler: function (id, e) {
-    var url = "users/" + (id+1);
+    var url = "users/" + (id);
     this.history.pushState(null, url);
   },
   render: function () {
@@ -35,7 +35,7 @@ var UserHomepage = React.createClass ({
         <ul className='group'>
             {
               this.state.users.map(function (user, idx){
-                  return <li className='suggest' key={idx}><a onClick={this.clickHandler.bind(this, idx)}> {user.username} </a><FollowButton followees={this.state.currentFollowees} idx={idx+1}/> </li>
+                  return <li className='suggest' key={idx}><a onClick={this.clickHandler.bind(this, user.id)}> {user.username} </a><FollowButton followees={this.state.currentFollowees} idx={idx+1}/> </li>
               }.bind(this))
             }
           </ul>

@@ -106,5 +106,17 @@ var ApiUtil = {
         CommentsActions.getComments(comments);
       }
     });
+  },
+
+  createComment: function(type, id, text){
+    $.ajax ({
+      url: "/api/comments",
+      method: "POST",
+      data: {"type":type, "type_id": id, "body": text},
+      datatype: "JSON",
+      success: function (comment) {
+        CommentsActions.updateSingleComment(comment);
+      }
+    });
   }
 };

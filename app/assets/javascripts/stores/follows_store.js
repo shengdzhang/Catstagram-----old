@@ -12,7 +12,6 @@
     FollowsStore.emit(CHANGE_EVENT);
   };
   var removeFollower = function (follow) {
-    var remove = false;
     for (var i = 0; i < _follows.length; i++) {
       if (follow.id === _follows[i].id) {
         _follows.splice(i, 1);
