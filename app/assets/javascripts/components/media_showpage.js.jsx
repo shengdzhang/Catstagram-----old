@@ -1,9 +1,8 @@
 
 
 var MediaShowpage = React.createClass({
-  mixins: [LinkedStateMixin],
   getInitialState: function () {
-    return {media: {}, comments: [], text: ""};
+    return {media: {}, comments: []};
   },
   componentDidMount: function () {
     ApiUtil.fetchSingleMedia(parseInt(this.props.params.mediumId));
@@ -23,12 +22,7 @@ var MediaShowpage = React.createClass({
     var comments = CommentsStore.all();
     this.setState({comments: comments});
   },
-  handleClick: function (type, e) {
-    if(this.state.text !== "")
-    {
-      ApiUtil.createComment(type, this.state.media.id, this.state.text);
-    }
-  },
+
   render: function () {
 
     return (
@@ -38,7 +32,7 @@ var MediaShowpage = React.createClass({
           <ul className="comments-list">
             {
               this.state.comments.map(function (comment, idx){
-                return <li key={idx}>{comment.author_id} commented:<br/><br/> {comment.body}</li>
+                return <li key={idx}>{comment.author_id} commented:<br/><br/> {comment.body} <br/> <NestedComment commentId={comment.id}/> </li>
               })
             }
           </ul>
@@ -47,13 +41,7 @@ var MediaShowpage = React.createClass({
               <button className="media-like"> Like </button>
             </div>
 
-            <div className="comment-form">
-              <textarea placeholder="Enter Comment" valueLink={this.linkState('text')}></textarea>
-            </div>
-
-            <div className="media-submit-container">
-              <button onClick={this.handleClick.bind(this, "Medium")}> Click </button>
-            </div>
+            <MediaCommentForm typeId={this.state.media.id} type="Medium"/>
 
           </div>
         </div>
