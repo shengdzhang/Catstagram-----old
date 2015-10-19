@@ -3,6 +3,7 @@
 /* global MediaActions */
 /* global FollowsActions */
 /* global CommentsActions */
+/* global LikesActions */
 
 var ApiUtil = {
   getUsers: function(){
@@ -33,7 +34,7 @@ var ApiUtil = {
       success: function (e) {
         window.location.href = '/session/new';
       }
-    })
+    });
   },
 
   getFollowees: function () {
@@ -67,6 +68,42 @@ var ApiUtil = {
       datatype: "JSON",
       success: function (follow) {
         FollowsActions.deleteSingleFollow(follow);
+      }
+    });
+  },
+
+  fetchLikes: function (media_id) {
+    $.ajax ({
+      url: "/likes",
+      method: "GET",
+      data: {"media_id": media_id},
+      datatype: "JSON",
+      success: function (likes) {
+        LikesActions.getLikes(likes);
+      }
+    });
+  },
+
+  createLike: function (idx) {
+    $.ajax ({
+      url: "/likes",
+      method: "POST",
+      data: {"media_id": idx},
+      datatype: "JSON",
+      success: function (like) {
+        LikesActions.updateSingleLike(like);
+      }
+    });
+  },
+
+  removeLike: function (idx) {
+    $.ajax ({
+      url: "/likes/"+idx,
+      method: "DELETE",
+      data: {"media_id": idx},
+      datatype: "JSON",
+      success: function (like) {
+        LikesActions.deleteSingleLike(like);
       }
     });
   },

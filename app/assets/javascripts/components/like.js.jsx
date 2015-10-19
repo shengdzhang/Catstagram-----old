@@ -1,37 +1,30 @@
               <button className="media-like"> Like </button>
 
-var FollowButton = React.createClass ({
+var LikeButton = React.createClass ({
 
-  followButton: function (e) {
-    var name = "Follow";
-    var click = this.handleClickFollow;
-    var followees = this.props.followees;
-    var idx = parseInt(this.props.idx);
-    for (var i = 0; i < followees.length; i++) {
-      if (idx === followees[i].followee_id) {
-        name = "Unfollow";
-        click = this.handleClickUnfollow;
-      }
-    }
-
-    return (
-        <button className={name} onClick={click}>
-          {name}
-        </button>
-    )
-  },
-  handleClickFollow: function (e) {
+  handleClickLike: function (e) {
     e.preventDefault();
-    ApiUtil.createFollow(this.props.idx);
+    ApiUtil.createLike(this.props.mediaId);
   },
-  handleClickUnfollow: function (e) {
+  handleClickUnlike: function (e) {
     e.preventDefault();
-    ApiUtil.removeFollow(this.props.idx);
+    ApiUtil.removeLike(this.props.mediaId);
   },
   render: function () {
-
+    var name = "Like";
+    var click = this.handleClickLike;
+    var likes = this.props.likes;
+    var idx = parseInt(this.props.mediaId);
+    for (var i = 0; i < likes.length; i++) {
+      if (idx === likes[i].media_id) {
+        name = "Unlike";
+        click = this.handleClickUnlike;
+      }
+    }
     return (
-      this.followButton()
+        <button className="media-like" onClick={click}>
+          {name}
+        </button>
     );
 
   }
