@@ -18,5 +18,12 @@ CommentsActions = {
       actionType: CommentsConstants.REMOVE_SINGLE_COMMENT,
       comment: comment
     });
+  },
+
+  getSingleComment: function (comment) {
+    AppDispatcher.dispatch({
+      actionType: CommentsConstants.FETCH_COMMENT,
+      comment: comment
+    });
   }
 };

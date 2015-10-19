@@ -1,0 +1,19 @@
+.comments-list {
+  width: inherit;
+  height: 400px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  border-radius: 2px;
+}
+
+.comment-wrap {
+  margin-top: 5px;
+  width: inherit;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.nested-comments {
+  margin-left: 30px;
+}

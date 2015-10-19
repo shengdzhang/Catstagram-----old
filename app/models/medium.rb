@@ -7,5 +7,11 @@ class Medium < ActiveRecord::Base
     foreign_key: :author_id
   )
 
+  has_many(
+    :likes,
+    class_name: "Like",
+    foreign_key: :media_id
+  )
+
   has_many :comments, as: :commentable
 end

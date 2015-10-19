@@ -1,4 +1,5 @@
 var Search = React.createClass ({
+  mixins: [ReactRouter.History],
   getInitialState: function () {
     return {searchQuery: "", users: UsersStore.all()};
   },
@@ -14,8 +15,10 @@ var Search = React.createClass ({
   onUserChange: function () {
     this.setState({users: UsersStore.all()});
   },
-  handleClick: function (e) {
-    this.setState ({searchQuery: e});
+  handleClick: function (id, e) {
+    this.setState({searchQuery: ""});
+    var url = "users/" + (id);
+    this.history.pushState(null, url);
   },
   render: function () {
     var placeholder = "\ud83d\udd0d";
@@ -35,8 +38,8 @@ var Search = React.createClass ({
         <div id="searchglass">{placeholder}</div><input onChange={this.handleChange} name="search" type="text" value={this.state.searchQuery} placeholder=" Search"/>
         <ul className="dropdown">
           {
-              names.map(function(l, idx){
-              return <li key={idx} onClick={self.handleClick.bind(self, l.username)}> {l.username} </li>
+              names.map(function(user, idx){
+              return <li key={idx} onClick={self.handleClick.bind(self, user.id)}> {user.username} </li>
             })
           }
         </ul>

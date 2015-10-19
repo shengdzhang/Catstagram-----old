@@ -23,10 +23,19 @@ var Nav = React.createClass ({
   handleClickHome: function () {
     this.history.pushState(null, '/');
   },
+  handleLogOut: function () {
+    ApiUtil.logOut();
+  },
   render: function () {
-    var username = "";
-    if(this.state.user) {
-      username = this.state.user.username;
+    var username = "",
+        note;
+    if (this.state.user) {
+      if (window.location.hash.match(/(current)/) === null) {
+        username = this.state.user.username;
+        note = <li onClick={this.handleClickProfile}> {username}</li>;
+      } else {
+        note = <li onClick={this.handleLogOut}> Log out</li>;
+      }
     }
     return (
       <div>
@@ -35,7 +44,7 @@ var Nav = React.createClass ({
             <ul className='navbar'>
               <li onClick={this.handleClickHome}> Catstagram </li>
               <li> <Search/> </li>
-              <li onClick={this.handleClickProfile}> {username} </li>
+              {note}
             </ul>
           </nav>
         }

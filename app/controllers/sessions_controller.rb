@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :require_log_in!, only: [:new, :create]
+
   def new
   end
 
@@ -19,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to new_session_url
+    render json: {}
   end
 
   private

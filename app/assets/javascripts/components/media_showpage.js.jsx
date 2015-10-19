@@ -32,16 +32,16 @@ var MediaShowpage = React.createClass({
           <ul className="comments-list">
             {
               this.state.comments.map(function (comment, idx){
-                return <li key={idx}>{comment.author_id} commented:<br/><br/> {comment.body} <br/> <NestedComment commentId={comment.id}/> </li>
+                return <CommentShow key={comment.id} commentId={comment.id}/>
               })
             }
           </ul>
           <div className="comment-wrap">
             <div className="media-button-container">
-              <button className="media-like"> Like </button>
+              <Like mediaId={this.state.media.id}/>
             </div>
 
-            <MediaCommentForm typeId={this.state.media.id} type="Medium"/>
+            <CommentForm typeId={this.state.media.id} type="Medium"/>
 
           </div>
         </div>

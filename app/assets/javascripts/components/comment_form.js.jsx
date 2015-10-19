@@ -1,6 +1,5 @@
 
 var CommentForm = React.createClass ({
-  mixins: [LinkedStateMixin],
   getInitialState: function () {
     return {text: ""};
   },
@@ -10,15 +9,20 @@ var CommentForm = React.createClass ({
       ApiUtil.createComment(this.props.type, this.props.typeId, this.state.text);
     }
   },
+  textChange: function (e) {
+    this.setState({text: e.target.value});
+  },
   render: function () {
-    <div>
-      <div className="comment-form">
-        <textarea placeholder="Enter Comment" valueLink={this.linkState('text')}></textarea>
-      </div>
+    return (
+      <div>
+        <div className="comment-form">
+          <textarea placeholder="Enter Comment" onChange={this.textChange} value={this.state.text}></textarea>
+        </div>
 
-      <div className="media-submit-container">
-        <button onClick={this.handleClick}> Click </button>
+        <div className="media-submit-container">
+          <button onClick={this.handleClick}> Click </button>
+        </div>
       </div>
-    </div>
+    )
   }
 });

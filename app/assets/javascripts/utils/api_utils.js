@@ -26,6 +26,16 @@ var ApiUtil = {
     });
   },
 
+  logOut: function () {
+    $.ajax ({
+      url: "/session",
+      method: "DELETE",
+      success: function (e) {
+        window.location.href = '/session/new';
+      }
+    })
+  },
+
   getFollowees: function () {
     $.ajax ({
       url: "/follows",
@@ -116,6 +126,17 @@ var ApiUtil = {
       datatype: "JSON",
       success: function (comment) {
         CommentsActions.updateSingleComment(comment);
+      }
+    });
+  },
+
+  fetchComment: function(id) {
+    $.ajax ({
+      url: "/api/comments/" +id,
+      method: "GET",
+      datatype: "JSON",
+      success: function (comment) {
+        CommentsActions.getSingleComment(comment);
       }
     });
   }

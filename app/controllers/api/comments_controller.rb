@@ -9,8 +9,13 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new({commentable_type: params[:type], commentable_id: params[:type_id], body: params[:body]})
     @comment.author_id = current_user.id
+    @comment.author_name = current_user.username
     @comment.save!
     render json: @comment
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def update
