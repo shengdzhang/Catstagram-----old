@@ -2,6 +2,7 @@
   'use strict';
   var _users = [];
   var CHANGE_EVENT = 'changed';
+  var UPDATE_EVENT = 'updated';
   var _user = {};
   var _currentUser = {};
 
@@ -17,14 +18,28 @@
     UsersStore.emit(CHANGE_EVENT);
   };
 
+  var updateUser = function(user){
+    _users.splice(UsersStore.findUser(user.id), 1, user);
+    UsersStore.emit(CHANGE_EVENT);
+    UsersStore.emit(UPDATE_EVENT);
+  };
+
   var UsersStore = root.UsersStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _users.slice();
     },
     getUser: function (id) {
+      var idx = this.findUser(id);
+      if(idx) {
+        return _users[idx];
+      } else if(id === _currentUser.id){
+        return this.getCurrentUser();
+      }
+    },
+    findUser: function (id) {
       for(var i=0; i < _users.length; i++){
         if(_users[i].id === id) {
-          return _users[i];
+          return i;
         }
       }
     },
@@ -40,6 +55,12 @@
     removeChangeListener: function(callback){
       this.removeListener(CHANGE_EVENT, callback);
     },
+    addUpdateListener: function(callback){
+      this.on(UPDATE_EVENT, callback);
+    },
+    removeUpdateListener: function(callback){
+      this.removeListener(UPDATE_EVENT, callback);
+    },
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case UsersConstants.FETCH_USERS:
@@ -47,6 +68,9 @@
           break;
         case UsersConstants.FETCH_SINGLE_USER:
           resetUser(payload.user);
+          break;
+        case UsersConstants.UPDATE_USER:
+          updateUser(payload.user);
           break;
       }
     })

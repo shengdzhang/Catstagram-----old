@@ -16,5 +16,11 @@ MediaActions = {
       actionType: MediaConstants.FETCH_MEDIUM,
       medium: medium
     });
+  },
+  updateMedium: function(medium) {
+    AppDispatcher.dispatch ({
+      actionType: MediaConstants.UPDATE_MEDIUM,
+      medium: medium
+    });
   }
 };

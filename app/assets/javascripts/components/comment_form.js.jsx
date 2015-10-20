@@ -16,7 +16,7 @@ var CommentForm = React.createClass ({
     return (
       <div>
         <div className="comment-form">
-          <textarea placeholder="Add Comment" onChange={this.textChange} value={this.state.text}></textarea>
+          <input type="text" placeholder="Add Comment" onChange={this.textChange} value={this.state.text}></input>
         </div>
 
         <div className="media-submit-container">

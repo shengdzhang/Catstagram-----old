@@ -27,6 +27,18 @@ var ApiUtil = {
     });
   },
 
+  editUser: function (id, newUsername, password, newPassword) {
+    $.ajax ({
+      url: "/users/" + id,
+      method: "PATCH",
+      data: {new_name: newUsername, password: password, new_password: newPassword},
+      datatype: "JSON",
+      success: function(user) {
+        UsersActions.updateUser(user);
+      }
+    });
+  },
+
   logOut: function () {
     $.ajax ({
       url: "/session",
@@ -139,6 +151,18 @@ var ApiUtil = {
       datatype: "JSON",
       success: function(medium) {
         MediaActions.fetchMedium(medium);
+      }
+    });
+  },
+
+  editMedia: function (id, url, title, description) {
+    $.ajax ({
+      url: "/api/media/" + id,
+      method: "PATCH",
+      data: {"url": url, "title": title, "description": description},
+      datatype: "JSON",
+      success: function(medium) {
+        MediaActions.updateMedium(medium);
       }
     });
   },

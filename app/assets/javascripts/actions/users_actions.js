@@ -9,6 +9,12 @@ UsersActions = {
     AppDispatcher.dispatch({
       actionType: UsersConstants.FETCH_SINGLE_USER,
       user:user
-    })
+    });
+  },
+  updateUser: function(user) {
+    AppDispatcher.dispatch({
+      actionType: UsersConstants.UPDATE_USER,
+      user: user
+    });
   }
 };

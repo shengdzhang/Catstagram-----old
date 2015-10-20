@@ -1,10 +1,11 @@
 .comments-list {
   width: inherit;
-  height: 400px;
+  height: 307px;
   border: 1px solid black;
   overflow-y: scroll;
   border-radius: 2px;
 }
+
 
 .comment-wrap {
   margin-top: 5px;
@@ -15,5 +16,13 @@
 }
 
 .nested-comments {
+  margin-left: 60px;
+}
+
+.comment-author {
   margin-left: 30px;
+}
+
+.comment-body {
+  margin-left: 40px;
 }

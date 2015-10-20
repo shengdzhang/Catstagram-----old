@@ -3,7 +3,7 @@ json.extract!(
   :id, :title, :description, :author_id, :link
 )
 
-json.comments do
+json.likes do
   json.array!(@medium.likes) do |like|
     json.extract!(
       like,

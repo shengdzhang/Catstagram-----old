@@ -1,0 +1,15 @@
+.user-edit {
+  padding-top: 70px;
+  width: 300px;
+  margin: auto;
+}
+
+.edit-form-wrap {
+  padding-top: 50px;
+  width: 600px;
+  margin: auto;
+}
+
+.edit-form-wrap > input {
+  margin: 10px;
+}

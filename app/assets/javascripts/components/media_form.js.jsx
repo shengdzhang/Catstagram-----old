@@ -39,20 +39,24 @@ var MediaForm = React.createClass ({
       this.setState({url: url});
     }
   },
+  handleReset: function (e) {
+    this.setState({title: "", description: "", url: null});
+  },
   render: function () {
-    var url = this.state.url || "http://res.cloudinary.com/catstagram/image/upload/v1445014705/hsp3rfrvrgvbzmfl8czz.png";
+    var url = this.state.url || "http://res.cloudinary.com/catstagram/image/upload/v1445014670/g6xesy4cm99zroz96rcc.png";
     return (
       <form className="media-form group">
         <div className="column1">
           <input className="media-title" placeholder="Title" type="text" name="title" value={this.state.title} onChange={this.handleTitle}></input>
           <br/>
           <textarea className="media-desc" placeholder="  Description  " name="description" value={this.state.description} onChange={this.handleDesc}></textarea>
-          <input className="media-submit" type="submit" value="Add new media" onClick={this.handleSubmit}/>
+          <input className="media-submit" type="submit" value="Create new media" onClick={this.handleSubmit}/>
         </div>
         <div className="column2">
           <img className="media-img" src={url}/>
           <button className="media-upload-button" onClick={this.handleLink}> Upload </button>
         </div>
+        <button className="media-reset" onClick={this.handleReset}> Reset </button>
     </form>
     );
   }

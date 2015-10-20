@@ -25,6 +25,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if (@user.valid_password?(params[:password]))
+      @user.update!(username: params[:new_name], password: params[:new_password])
+    end
+  end
+
   private
 
   def user_params

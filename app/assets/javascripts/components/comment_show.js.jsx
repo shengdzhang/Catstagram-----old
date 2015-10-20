@@ -17,19 +17,26 @@ var CommentShow = React.createClass({
     this.setState({comment: comment, comments: comments});
   },
   render: function () {
+    var author = "";
+    if(this.state.comment.author){
+      author = this.state.comment.author.username;
+    }
     return (
       <div>
         <li>
-          <span className="comment-author"> {this.state.comment.author_name} </span>
+          <span className="comment-author"> {author}: </span>
           <br/>
           <span className="comment-body"> {this.state.comment.body} </span>
         </li>
         <ul className="nested-comments group">
           {
             this.state.comments.map (function (comment) {
+              if(comment.author) {
+                author = comment.author.username
+              }
               return (
               <li key={comment.id}>
-                {comment.author_name}
+                {author}
                 <br/>
                 {comment.body}
               </li>

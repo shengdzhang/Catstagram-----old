@@ -25,6 +25,17 @@
     fetchMedium: function () {
       return $.extend({}, _medium);
     },
+    getMedia: function (id) {
+      var idx = this.findMedium(id);
+      return _media[idx];
+    },
+    findMedium: function (id) {
+      for(var i=0; i < _media.length; i++){
+        if(_media[i].id === id) {
+          return i;
+        }
+      }
+    },
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
     },
@@ -46,6 +57,9 @@
           createMedium(payload.medium);
           break;
         case MediaConstants.FETCH_MEDIUM:
+          getMedium(payload.medium);
+          break;
+        case MediaConstants.UPDATE_MEDIUM:
           getMedium(payload.medium);
           break;
       }

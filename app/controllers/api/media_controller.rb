@@ -7,13 +7,20 @@ class Api::MediaController < ApplicationController
   end
 
   def create
-    @media = Medium.new({title: params[:title], link: params[:url], description: params[:description]})
-    @media.author_id = current_user.id
-    @media.save!
-    render json: @media
+    @medium = Medium.new({title: params[:title], link: params[:url], description: params[:description]})
+    @medium.author_id = current_user.id
+    @medium.save!
+    render json: @medium
   end
 
   def show
     @medium = Medium.find(params[:id])
   end
+
+  def update
+    @medium = Medium.find(params[:id])
+    @medium.update!({title: params[:title], link: params[:url], description: params[:description]})
+    render json: @medium
+  end
+
 end

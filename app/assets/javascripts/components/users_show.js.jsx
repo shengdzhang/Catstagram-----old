@@ -46,14 +46,12 @@ var UserShowpage = React.createClass ({
       )
     }
   },
-
   componentWillReceiveProps: function(val) {
       var id = val.params.userId;
       ApiUtil.getSingleUser(id);
       ApiUtil.getMedia(id);
       this.setState({userId: id});
   },
-
   pathMedia: function (id, e) {
     var url = "media/" + id;
     this.history.pushState(null, url);

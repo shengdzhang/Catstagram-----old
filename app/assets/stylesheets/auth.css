@@ -11,8 +11,12 @@
   margin: auto;
   width: 200px;
   padding: 2px;
-  border: 1px solid black;
   height: 15px;
+}
+
+input.signing {
+  height: 25px;
+  font-size: 18px;
 }
 
 .formwrap {
