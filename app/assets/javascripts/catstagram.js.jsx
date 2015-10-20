@@ -21,7 +21,9 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={UserHomepage}/>
-    <Route path="users/:userId" component={UserShowpage}/>
+    <Route path="users/:userId" component={UserShowpage}>
+    </Route>
+      <Route path="users/:userId/edit" component={UserEditpage}/>
     <Route path="media/new" component={MediaForm}/>
     <Route path="media/:mediumId" component={MediaShowpage}/>
   </Route>

@@ -5,7 +5,7 @@
 var UserShowpage = React.createClass ({
   mixins: [ReactRouter.History],
   getInitialState: function () {
-    return {userId: parseInt(this.props.params.userId), media: []};
+    return {userId: parseInt(this.props.params.userId), media: [], user: UsersStore.getShowUser(), followers: []};
   },
   componentDidMount: function () {
     UsersStore.addChangeListener(this.onUserChange);
@@ -15,7 +15,8 @@ var UserShowpage = React.createClass ({
   },
   onUserChange: function (e) {
     var user = UsersStore.getShowUser();
-    this.setState({user: user});
+    var followers = user.followers || [];
+    this.setState({user: user, followers: followers});
   },
   onMediaChange: function (e) {
     this.setState({media: MediaStore.all()});
@@ -27,11 +28,20 @@ var UserShowpage = React.createClass ({
   handleMedia: function () {
     this.history.pushState(null, "media/new");
   },
+  editProfile: function () {
+    var url = "/users/" +  CURRENT_USER_ID + "/edit";
+    this.history.pushState(null, url);
+  },
   uploadMedia: function () {
     if(this.props.location.query.user) {
       return (
-        <div>
-          <button onClick={this.handleMedia} > Upload Media </button>
+        <div className="upload-wrapper">
+          <div className="user-profile">
+            <button onClick={this.editProfile} > Profile </button>
+          </div>
+          <div className="user-upload">
+            <button onClick={this.handleMedia} > Upload Media </button>
+          </div>
         </div>
       )
     }
@@ -49,9 +59,15 @@ var UserShowpage = React.createClass ({
     this.history.pushState(null, url);
   },
   render: function () {
-    var name = "";
+    var name = "",
+        follows = "";
+    var followWord = "Followers"
     if(this.state.user){
       name = this.state.user.username;
+      follows = this.state.followers.length;
+      if (follows <= 1) {
+        followWord = "Follower"
+      }
     }
     return (
       <div id="showwrapper">
@@ -59,8 +75,10 @@ var UserShowpage = React.createClass ({
           {
             name
           }
-        </div>
+          <br/>
+          {followWord}: {follows}
           {this.uploadMedia()}
+        </div>
         <ul className="media-list">
           {
             this.state.media.map(function (media){

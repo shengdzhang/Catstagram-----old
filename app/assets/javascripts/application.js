@@ -18,5 +18,6 @@
 //= require reactrouter.min.js
 //= require flux
 //= require eventemitter
+//= require bootstrap
 //= require components
 //= require_tree .

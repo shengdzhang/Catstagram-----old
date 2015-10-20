@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
   )
 
   has_many(
+    :followed,
+    class_name: "Follow",
+    foreign_key: :followee_id
+  )
+
+  has_many(
     :liked_media,
     class_name: "Like",
     foreign_key: :user_id
@@ -23,6 +29,12 @@ class User < ActiveRecord::Base
     :followees,
     through: :follows,
     source: :followee
+  )
+
+  has_many(
+    :followers,
+    through: :followed,
+    source: :follower
   )
 
   has_many(

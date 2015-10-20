@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-
+# use jbuilder to hide follow pwdigest and session tokens
   def index
     @follows = Follow.all
     @id = params[:followee_id] || current_user.id

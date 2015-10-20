@@ -15,7 +15,6 @@ nav {
   text-align: center;
   border-bottom: 1px solid #21D2D2
 }
-
 .navbar {
   list-style: none;
   width: 900px;
@@ -56,7 +55,6 @@ nav {
 }
 
 #searchbar > input {
-  height: 25px;
   float: left;
   text-align: center;
   border: none;
@@ -67,37 +65,36 @@ nav {
   outline: none;
 }
 
-.dropdown {
-  margin-top: 50px;
+.dropdowner {
   position: absolute;
-  left: -1px;
   font-size: 14px;
   white-space: nowrap;
-  background: #fff;
   overflow: hidden;
   opacity: 0;
 }
 
-.dropdown > li {
+.dropdowner > li {
   border: 1px solid #ccc;
   width: 204px;
   color: #000;
+  background-color: #fff;
   text-align: left;
   padding-left: 10px;
 }
 
-.dropdown > li:first-child {
+.dropdowner > li:first-child {
+  margin-top: 50px;
 }
 
-#searchbar>input:focus ~ .dropdown{
+#searchbar>input:focus ~ .dropdowner{
     opacity: 1;
 }
 
-li:hover .dropdown{
+li:hover .dropdowner{
   display:block;
 }
 
-.dropdown > li:hover {
+.dropdowner > li:hover {
   background-color: #eee;
   cursor: pointer;
 }
