@@ -38,6 +38,16 @@ nav {
   cursor: pointer;
 }
 
+.navbar >li:last-child:hover {
+  color: black;
+  cursor:none;
+}
+
+.navbar > li > span:hover {
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
 #searchbar {
   width: 100%;
   margin-top: -3px;

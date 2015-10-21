@@ -30,12 +30,8 @@ var Nav = React.createClass ({
     var username = "",
         note;
     if (this.state.user) {
-      if (window.location.hash.match(/(current)/) === null) {
-        username = this.state.user.username;
-        note = <li onClick={this.handleClickProfile}> {username}</li>;
-      } else {
-        note = <li onClick={this.handleLogOut}> Log out</li>;
-      }
+      username = this.state.user.username;
+      note = <li> <span onClick={this.handleClickProfile}> {username} </span> <span onClick={this.handleLogOut}> Log out </span></li>;
     }
     return (
       <div>
