@@ -23,8 +23,12 @@
 
 .media-button-container > button {
   width: 100%;
-  height: 43px;
+  height: 40px;
   border-radius: 50%;
+}
+
+.media-button-container > button:hover {
+  background-color: green;
 }
 
 .comment-form {

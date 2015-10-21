@@ -3,7 +3,7 @@
 var MediaShowpage = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function () {
-    return {media: {}, comments: [], likes: [], followees: []};
+    return {media: {}, comments: [], likes: [], likeNumber: 0, followees: []};
   },
   componentDidMount: function () {
     ApiUtil.fetchSingleMedia(parseInt(this.props.params.mediumId));
@@ -34,7 +34,7 @@ var MediaShowpage = React.createClass({
   },
   onLikesChange: function () {
     var likes = LikesStore.all();
-    this.setState({likes: likes});
+    this.setState({likes: likes, likeNumber: likes.length});
   },
   editMedia: function () {
     var url = "/media/" + this.state.media.id +"/edit";
@@ -49,8 +49,8 @@ var MediaShowpage = React.createClass({
         id = null,
         followees=[],
         username = "";
-    if (this.state.media.likes){
-      likes = this.state.media.likes.length;
+    if (this.state.user){
+      likes = this.state.likeNumber;
       username = this.state.user.username;
       followees = this.state.followees;
       id = this.state.user.id

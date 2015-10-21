@@ -12,6 +12,7 @@
 .media-list {
   width: 800px;
   margin: auto;
+  overflow-y: scroll;
 }
 
 .media-list > li {

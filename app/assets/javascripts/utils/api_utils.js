@@ -112,7 +112,6 @@ var ApiUtil = {
     $.ajax ({
       url: "/likes/"+idx,
       method: "DELETE",
-      data: {"media_id": idx},
       datatype: "JSON",
       success: function (like) {
         LikesActions.deleteSingleLike(like);
