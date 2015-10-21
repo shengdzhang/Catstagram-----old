@@ -81,6 +81,7 @@ nav {
   white-space: nowrap;
   overflow: hidden;
   opacity: 0;
+  display:none;
 }
 
 .dropdowner > li {
@@ -90,6 +91,7 @@ nav {
   background-color: #fff;
   text-align: left;
   padding-left: 10px;
+  display: none;
 }
 
 .dropdowner > li:first-child {
@@ -98,10 +100,11 @@ nav {
 
 #searchbar>input:focus ~ .dropdowner{
     opacity: 1;
+    display: block;
 }
 
-li:hover .dropdowner{
-  display:block;
+#searchbar>input:focus ~ .dropdowner>li{
+    display: block;
 }
 
 .dropdowner > li:hover {
