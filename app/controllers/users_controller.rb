@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_action :require_log_in!, only: [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.all.select {|user| user.username != "Guest"}
   end
 
   def new

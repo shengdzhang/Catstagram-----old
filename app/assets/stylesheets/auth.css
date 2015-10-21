@@ -24,3 +24,18 @@ input.signing {
   margin: auto;
   margin-top: 100px;
 }
+
+#guest-button {
+  width: 37px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: cornflowerblue;
+  text-align: center;
+}
+
+#guest-button:hover {
+  text-decoration: underline;
+}

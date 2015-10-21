@@ -22,5 +22,11 @@ MediaActions = {
       actionType: MediaConstants.UPDATE_MEDIUM,
       medium: medium
     });
+  },
+  deleteMedium: function(medium) {
+    AppDispatcher.dispatch ({
+      actionType: MediaConstants.DELETE_MEDIUM,
+      medium: medium
+    });
   }
 };

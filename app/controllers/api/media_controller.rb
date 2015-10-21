@@ -23,4 +23,10 @@ class Api::MediaController < ApplicationController
     render json: @medium
   end
 
+  def destroy
+    @medium = Medium.find(params[:id])
+    @medium.destroy
+    render json: @medium
+  end
+
 end

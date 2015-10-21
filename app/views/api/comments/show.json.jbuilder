@@ -12,7 +12,7 @@ json.comments do
 
     json.author do
       json.extract!(
-        @comment.user,
+        comment.user,
         :id, :username
       )
     end

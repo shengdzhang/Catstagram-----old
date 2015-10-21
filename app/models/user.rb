@@ -49,6 +49,12 @@ class User < ActiveRecord::Base
     foreign_key: :author_id
   )
 
+  def self.guest
+    user = User.find_by_username("Guest")
+    user = User.create({username: "Guest", password: SecureRandom.urlsafe_base64(16).to_s}) unless (user)
+    return user
+  end
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil unless user && user.valid_password?(password)

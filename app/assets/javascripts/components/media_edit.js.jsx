@@ -9,10 +9,17 @@ var MediaEdit = React.createClass ({
   },
   componentDidMount: function () {
     MediaStore.addSingleChangeListener(this.onSuccess);
+    MediaStore.addDeleteChangeListener(this.onDeletion);
     ApiUtil.fetchSingleMedia(parseInt(this.props.params.mediumId));
   },
   componentWillUnmount: function () {
     MediaStore.removeSingleChangeListener(this.onSuccess);
+    MediaStore.removeDeleteChangeListener(this.onDeletion);
+  },
+  onDeletion: function () {
+    var current = {user: 'current'};
+    var url = "users/" + (CURRENT_USER_ID);
+    this.history.pushState(null, url, current);
   },
   onSuccess: function () {
     var media = MediaStore.fetchMedium();
@@ -49,6 +56,9 @@ var MediaEdit = React.createClass ({
   handleDelete: function (e) {
     e.preventDefault();
     var answer = prompt("Are you sure you want to delete? (Y or yes to delete)");
+    if (answer === "Y" || answer === "yes") {
+      ApiUtil.deleteMedia(this.state.media.id);
+    }
   },
   render: function () {
     if (this.state.media.author_id === CURRENT_USER_ID) {
@@ -63,8 +73,8 @@ var MediaEdit = React.createClass ({
           <div className="column2">
             <img className="media-img" src={this.state.link}/>
             <button className="media-upload-button" onClick={this.handleLink}> Upload </button>
+            <button className="media-delete" onClick={this.handleDelete}> Delete </button>
           </div>
-          <button className="media-delete" onClick={this.handleDelete}> Delete </button>
       </form>
       );
     } else {

@@ -167,6 +167,16 @@ var ApiUtil = {
     });
   },
 
+  deleteMedia: function (id) {
+    $.ajax ({
+      url: "/api/media/" + id,
+      method: "DELETE",
+      success: function(medium) {
+        MediaActions.deleteMedium(medium);
+      }
+    });
+  },
+
   fetchComments: function (id) {
     $.ajax ({
       url: "/api/comments",

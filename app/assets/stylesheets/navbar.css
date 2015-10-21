@@ -43,6 +43,11 @@ nav {
   cursor:none;
 }
 
+.navbar > li > span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .navbar > li > span:hover {
   color: cornflowerblue;
   cursor: pointer;

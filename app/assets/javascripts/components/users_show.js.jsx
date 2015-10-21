@@ -67,24 +67,28 @@ var UserShowpage = React.createClass ({
         followWord = "Follower"
       }
     }
-    return (
-      <div id="showwrapper">
-        <div className="profile">
-          {
-            name
-          }
-          <br/>
-          {followWord}: {follows}
-          {this.uploadMedia()}
+    if (this.props.params.userId === "13") {
+      return (<div></div>);
+    } else {
+      return (
+        <div id="showwrapper">
+          <div className="profile">
+            {
+              name
+            }
+            <br/>
+            {followWord}: {follows}
+            {this.uploadMedia()}
+          </div>
+          <ul className="media-list">
+            {
+              this.state.media.map(function (media){
+                  return <li className='media' key={media.id}><a onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
+              }.bind(this))
+            }
+          </ul>
         </div>
-        <ul className="media-list">
-          {
-            this.state.media.map(function (media){
-                return <li className='media' key={media.id}><a onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
-            }.bind(this))
-          }
-        </ul>
-      </div>
-    );
+      );
+    }
   }
 });

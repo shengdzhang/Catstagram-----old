@@ -4,6 +4,7 @@
   var _medium = {};
   var CHANGE_EVENT = 'media_change';
   var SINGLE_CHANGE_EVENT = 'single_media_change';
+  var DELETE_CHANGE_EVENT = 'media_deleted';
   var resetMedia = function (media) {
     _media = media;
     MediaStore.emit(CHANGE_EVENT);
@@ -16,6 +17,11 @@
   var getMedium = function(medium) {
     _medium = medium;
     MediaStore.emit(SINGLE_CHANGE_EVENT);
+  };
+
+  var deleteMedium = function(medium) {
+    _media.splice(MediaStore.findMedium(medium.id), 1);
+    MediaStore.emit(DELETE_CHANGE_EVENT);
   };
 
   var MediaStore = root.MediaStore = $.extend({}, EventEmitter.prototype, {
@@ -48,6 +54,12 @@
     removeSingleChangeListener: function(callback){
       this.removeListener(SINGLE_CHANGE_EVENT, callback);
     },
+    addDeleteChangeListener: function(callback){
+      this.on(DELETE_CHANGE_EVENT, callback);
+    },
+    removeDeleteChangeListener: function(callback){
+      this.removeListener(DELETE_CHANGE_EVENT, callback);
+    },
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case MediaConstants.FETCH_MEDIA:
@@ -61,6 +73,9 @@
           break;
         case MediaConstants.UPDATE_MEDIUM:
           getMedium(payload.medium);
+          break;
+        case MediaConstants.DELETE_MEDIUM:
+          deleteMedium(payload.medium);
           break;
       }
     })

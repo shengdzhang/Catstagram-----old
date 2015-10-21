@@ -44,32 +44,36 @@ var UserEditpage = React.createClass ({
     }
   },
   render: function () {
-    return (
-      <div className = "user-edit-wrapper">
-        <div className="user-edit">
-          Hello {this.state.username}
+    if (this.props.params.userId === "13") {
+      return (<div></div>);
+    } else {
+      return (
+        <div className = "user-edit-wrapper">
+          <div className="user-edit">
+            Hello {this.state.username}
+          </div>
+          <form className = "edit-form-wrap">
+            <label> Change Username </label>
+            <br/>
+            <input type="text" onChange={this.changeUsername} value={this.state.username}/>
+            <br/>
+            <label> Enter Password </label>
+            <br/>
+            <input type="text" onChange={this.changePassword} value={this.state.password}/>
+            <br/>
+            <label> Enter New Password </label>
+            <br/>
+            <input type="text" onChange={this.changeNewPassword} value={this.state.newPassword}/>
+            <br/>
+            <label> Confirm New Password </label>
+            <br/>
+            <input type="text" onChange={this.changeNewPassword2} value={this.state.newPassword2}/>
+            <br/>
+            <input type="submit" onClick={this.onSubmit} value="Submit"/>
+        </form>
         </div>
-        <form className = "edit-form-wrap">
-          <label> Change Username </label>
-          <br/>
-          <input type="text" onChange={this.changeUsername} value={this.state.username}/>
-          <br/>
-          <label> Enter Password </label>
-          <br/>
-          <input type="text" onChange={this.changePassword} value={this.state.password}/>
-          <br/>
-          <label> Enter New Password </label>
-          <br/>
-          <input type="text" onChange={this.changeNewPassword} value={this.state.newPassword}/>
-          <br/>
-          <label> Confirm New Password </label>
-          <br/>
-          <input type="text" onChange={this.changeNewPassword2} value={this.state.newPassword2}/>
-          <br/>
-          <input type="submit" onClick={this.onSubmit} value="Submit"/>
-      </form>
-      </div>
-    );
+      );
+    }
   }
 
 });

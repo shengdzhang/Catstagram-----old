@@ -13,5 +13,5 @@ class Medium < ActiveRecord::Base
     foreign_key: :media_id
   )
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 end
