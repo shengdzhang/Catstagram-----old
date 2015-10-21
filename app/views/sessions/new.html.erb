@@ -1,38 +1,40 @@
-<div class="formwrap">
-  <h1> Sign In! </h1>
-  <br/>
-  <br/>
-
-  <form action="<%= session_url %>" method="post">
-    <%= auth_token %>
-
-    <label class="signing"> Username </label>
-    <br/>
-    <input class="signing" type="text" name="user[username]" value=""/>
-    <br/>
-    <br/>
-    <label class="signing"> Password </label>
-    <br/>
-    <input class="signing" type="password" name="user[password]" value=""/>
+<div class="auth-wrap">
+  <div class="formwrap">
+    <h1> Sign In! </h1>
     <br/>
     <br/>
 
-    <input class="button" type="submit" value="Sign In"/>
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token %>
 
-  </form>
+      <label class="signing"> Username </label>
+      <br/>
+      <input class="signing" type="text" name="user[username]" value=""/>
+      <br/>
+      <br/>
+      <label class="signing"> Password </label>
+      <br/>
+      <input class="signing" type="password" name="user[password]" value=""/>
+      <br/>
+      <br/>
 
-  <br/>
+      <input class="button" type="submit" value="Sign In"/>
 
-  <div id="signup-message">
-  Need a new account? <a href= "<%= new_user_url%>" > Sign Up </a>
-  </div>
-  <div id="guest-message">
+    </form>
 
-  <form action="<%= guest_session_url %>" method="post">
-    <%= auth_token %>
-    Or use a
-    <input id="guest-button" type="submit" value="Guest"/>
-    account.
-  </form>
+    <br/>
+
+    <div id="signup-message">
+    Need a new account? <a href= "<%= new_user_url%>" > Sign Up </a>
+    </div>
+    <div id="guest-message">
+
+    <form action="<%= guest_session_url %>" method="post">
+      <%= auth_token %>
+      Or use a
+      <input id="guest-button" type="submit" value="Guest"/>
+      account.
+    </form>
+    </div>
   </div>
 </div>

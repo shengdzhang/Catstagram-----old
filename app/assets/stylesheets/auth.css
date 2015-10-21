@@ -1,3 +1,16 @@
+.auth-wrap {
+  width: inherit;
+  position: absolute;
+  margin: 0;
+  background: url("2012_Suedchinesischer_Tiger.JPG");
+  background-size: cover;
+  padding: 0;
+  padding-bottom: 200px;
+  overflow-y: hidden;
+  left: 0;
+  top: 0;
+}
+
 #signup-message a{
   color: #75FA42;
 }
@@ -16,13 +29,18 @@
 
 input.signing {
   height: 25px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .formwrap {
-  width:30%;
+  width: 25%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid gray;
+  border-radius: 5%;
+  padding: 50px;
+  padding-right: 0px;
 }
 
 #guest-button {
@@ -31,7 +49,8 @@ input.signing {
   padding-right: 0;
   border: none;
   outline: none;
-  background-color: white;
+  background-color: inherit;
+  background: inherit;
   color: cornflowerblue;
   text-align: center;
 }

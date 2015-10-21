@@ -18,6 +18,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
 #content {
   margin-top: 15px;
 }
