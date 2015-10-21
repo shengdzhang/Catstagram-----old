@@ -86,21 +86,19 @@ nav {
   white-space: nowrap;
   overflow: hidden;
   opacity: 0;
-  display:none;
+  margin-top: 50px;
 }
 
 .dropdowner > li {
   border: 1px solid #ccc;
-  width: 204px;
+  width: 0px;
   color: #000;
   background-color: #fff;
   text-align: left;
   padding-left: 10px;
-  display: none;
-}
-
-.dropdowner > li:first-child {
-  margin-top: 50px;
+  display: block;
+  cursor: default;
+  transition: 0.5s;
 }
 
 #searchbar>input:focus ~ .dropdowner{
@@ -108,11 +106,13 @@ nav {
     display: block;
 }
 
-#searchbar>input:focus ~ .dropdowner>li{
-    display: block;
+#searchbar>input:focus ~ .dropdowner >li{
+    width: 204px;
 }
 
-.dropdowner > li:hover {
-  background-color: #eee;
-  cursor: pointer;
+#searchbar>input:focus ~ .dropdowner >li:hover{
+    display: block;
+    cursor: pointer;
+    background-color: #eee;
+
 }

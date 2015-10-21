@@ -40,27 +40,42 @@ var MediaShowpage = React.createClass({
     var url = "/media/" + this.state.media.id +"/edit";
     this.history.pushState(null, url);
   },
+  follow: function () {
+    var followees = [],
+        id = null;
+    if(this.state.user) {
+      followees = this.state.followees;
+      id = this.state.user.id;
+    }
+    if(this.state.media.author_id) {
+      if(this.state.media.author_id !== CURRENT_USER_ID) {
+          return (
+            <span className="media-show-follow"><FollowButton followees={followees} idx={id}/></span>
+          );
+      } else {
+        return (
+          <span></span>
+        )
+      }
+    }
+  },
   render: function () {
     var specialButton = <LikeButton likes={this.state.likes} mediaId={this.state.media.id}/>;
     if (this.state.media.author_id === CURRENT_USER_ID) {
       specialButton = <button onClick={this.editMedia}> Edit </button>
     }
     var likes = 0,
-        id = null,
-        followees=[],
         username = "";
     if (this.state.user){
       likes = this.state.likeNumber;
       username = this.state.user.username;
-      followees = this.state.followees;
-      id = this.state.user.id
     }
     return (
       <div className="media-show">
         <img src={this.state.media.link}/>
         <div className="media-info">
           <span className="media-show-author">Author: {username}</span>
-          <span className="media-show-follow"><FollowButton followees={followees} idx={id}/></span>
+          {this.follow()}
           <br/>
           <span className="media-show-likes">Likes: {likes} </span>
         </div>

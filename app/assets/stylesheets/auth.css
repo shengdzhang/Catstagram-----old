@@ -5,7 +5,7 @@
   background: url("http://res.cloudinary.com/catstagram/image/upload/v1445459344/2012_Suedchinesischer_Tiger_yxztht.jpg");
   background-size: cover;
   padding: 0;
-  padding-bottom: 200px;
+  height: 100vh;
   overflow-y: hidden;
   left: 0;
   top: 0;
