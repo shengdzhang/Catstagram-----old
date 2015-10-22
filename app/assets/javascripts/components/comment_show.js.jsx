@@ -30,13 +30,10 @@ var CommentShow = React.createClass({
         </li>
         <ul className="nested-comments group">
           {
-              this.state.comments.map (function (comment) {
+              this.state.comments.map (function (comment, idx) {
+                var temp = comment.author.username + ": " + comment.body;
                 return (
-                <li key={comment.id}>
-                  {comment.author}
-                  <br/>
-                  {comment.body}
-                </li>
+                  <li key={comment.id}>{temp} </li>
                 )
               })
 

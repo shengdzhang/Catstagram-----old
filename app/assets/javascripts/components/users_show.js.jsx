@@ -33,17 +33,42 @@ var UserShowpage = React.createClass ({
     this.history.pushState(null, url);
   },
   uploadMedia: function () {
+    var follows = "";
+    var followWord = "Followers";
+    if(this.state.user){
+      follows = this.state.followers.length;
+      if (follows <= 1) {
+        followWord = "Follower";
+      }
+    }
+    var followz = followWord + ": " + follows;
     if(this.props.location.query.user) {
+      var profile = <div></div>;
+      if(CURRENT_USER_ID !== 13)
+      {
+        profile = <div className="user-profile">
+                    <button onClick={this.editProfile} > Profile </button>
+                  </div>;
+      } else {
+        followz = "";
+      }
       return (
-        <div className="upload-wrapper">
-          <div className="user-profile">
-            <button onClick={this.editProfile} > Profile </button>
-          </div>
-          <div className="user-upload">
-            <button onClick={this.handleMedia} > Upload Media </button>
+        <div>
+          {followz}
+          <div className="upload-wrapper">
+            {profile}
+            <div className="user-upload">
+              <button onClick={this.handleMedia} > Upload Media </button>
+            </div>
           </div>
         </div>
       )
+    } else {
+      return (
+        <div>
+          {followz}
+        </div>
+      );
     }
   },
   componentWillReceiveProps: function(val) {
@@ -57,38 +82,28 @@ var UserShowpage = React.createClass ({
     this.history.pushState(null, url);
   },
   render: function () {
-    var name = "",
-        follows = "";
-    var followWord = "Followers"
+    var name = "";
     if(this.state.user){
       name = this.state.user.username;
-      follows = this.state.followers.length;
-      if (follows <= 1) {
-        followWord = "Follower"
-      }
     }
-    if (this.props.params.userId === "13") {
-      return (<div></div>);
-    } else {
-      return (
-        <div id="showwrapper">
-          <div className="profile">
-            {
-              name
-            }
-            <br/>
-            {followWord}: {follows}
-            {this.uploadMedia()}
-          </div>
-          <ul className="media-list">
-            {
-              this.state.media.map(function (media){
-                  return <li className='media' key={media.id}><a onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
-              }.bind(this))
-            }
-          </ul>
+
+    return (
+      <div id="showwrapper">
+        <div className="profile">
+          {
+            name
+          }
+          <br/>
+          {this.uploadMedia()}
         </div>
-      );
-    }
+        <ul className="media-list">
+          {
+            this.state.media.map(function (media){
+                return <li className='media' key={media.id}><a onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
+            }.bind(this))
+          }
+        </ul>
+      </div>
+    );
   }
 });

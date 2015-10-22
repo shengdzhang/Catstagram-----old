@@ -14,6 +14,7 @@ var CommentForm = React.createClass ({
   },
   render: function () {
     var place;
+    var classes = this.props.type+"-input";
     if (this.props.type === "Comment") {
       place = "Reply - Press enter to submit";
     } else {
@@ -22,7 +23,7 @@ var CommentForm = React.createClass ({
     return (
       <div>
         <div className="comment-form">
-          <input type="text" placeholder={place} onKeyUp={this.handleKeyUp} onChange={this.textChange} value={this.state.text}></input>
+          <input className= {classes} type="text" placeholder={place} onKeyUp={this.handleKeyUp} onChange={this.textChange} value={this.state.text}></input>
         </div>
       </div>
     )

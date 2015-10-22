@@ -42,26 +42,21 @@ var MediaForm = React.createClass ({
   },
   render: function () {
     var url = this.state.url || "http://res.cloudinary.com/catstagram/image/upload/v1445014670/g6xesy4cm99zroz96rcc.png";
-    if (CURRENT_USER_ID === "13") {
-      return (
-        <div></div>
-      );
-    } else {
-      return (
-        <form className="media-form group">
-          <div className="column1">
-            <input className="media-title" placeholder="Title" type="text" name="title" value={this.state.title} onChange={this.handleTitle}></input>
-            <br/>
-            <textarea className="media-desc" placeholder="  Description  " name="description" value={this.state.description} onChange={this.handleDesc}></textarea>
-            <input className="media-submit" type="submit" value="Create new media" onClick={this.handleSubmit}/>
-          </div>
-          <div className="column2">
-            <img className="media-img" src={url}/>
-            <button className="media-upload-button" onClick={this.handleLink}> Upload </button>
-            <button className="media-reset" onClick={this.handleReset}> Reset </button>
-          </div>
+
+    return (
+      <form className="media-form group">
+        <div className="column1">
+          <input className="media-title" placeholder="Title" type="text" name="title" value={this.state.title} onChange={this.handleTitle}></input>
+          <br/>
+          <textarea className="media-desc" placeholder="  Description  " name="description" value={this.state.description} onChange={this.handleDesc}></textarea>
+          <input className="media-submit" type="submit" value="Create new media" onClick={this.handleSubmit}/>
+        </div>
+        <div className="column2">
+          <img className="media-img" src={url}/>
+          <button className="media-upload-button" onClick={this.handleLink}> Upload </button>
+          <button className="media-reset" onClick={this.handleReset}> Reset </button>
+        </div>
       </form>
       );
     }
-  }
 });

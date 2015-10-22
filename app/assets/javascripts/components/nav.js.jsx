@@ -16,11 +16,9 @@ var Nav = React.createClass ({
     UsersStore.removeChangeListener(this.onChange);
   },
   handleClickProfile: function () {
-    if (this.state.user.username) {
-      var current = {user: 'current'};
-      var url = "users/" + (CURRENT_USER_ID);
-      this.history.pushState(null, url, current);
-    }
+    var current = {user: 'current'};
+    var url = "users/" + (CURRENT_USER_ID);
+    this.history.pushState(null, url, current);
   },
   handleClickHome: function () {
     this.history.pushState(null, '/');
@@ -31,7 +29,7 @@ var Nav = React.createClass ({
   render: function () {
     var username = "",
         note;
-    if (this.state.user.username) {
+    if (this.state.user.username || CURRENT_USER_ID === 13) {
       username = this.state.user.username || "Guest";
       note = <li> <span onClick={this.handleClickProfile}> {username} </span> <span onClick={this.handleLogOut}> Log out </span></li>;
     }

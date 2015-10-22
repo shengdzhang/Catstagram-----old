@@ -30,10 +30,8 @@ body {
 }
 
 .pagewrapper {
-  min-height: 700px;
+  height: 100vh;
+  margin-bottom: 100px;
   margin-top: 70px;
-  overflow-y: hidden;
-  /*background: url(https://ogchronic.files.wordpress.com/2013/09/happy-kitty.jpg) no-repeat center center fixed;*/
-  /*background-position: 50% -200px;*/
   background-color: #FAFAFA;
 }

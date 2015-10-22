@@ -39,12 +39,18 @@
   float: left;
 }
 
-.comment-form > input {
+.Medium-input{
   border: 1px solid black;
   width: 100%;
   height: 38px;
   padding: 2px;
+}
 
+.Comment-input{
+  border: 1px solid black;
+  width: 100%;
+  height: 38px;
+  padding: 2px;
 }
 
 .media-submit-container{
