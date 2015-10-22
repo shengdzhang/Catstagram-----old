@@ -44,7 +44,7 @@ var UserShowpage = React.createClass ({
     var followz = followWord + ": " + follows;
     if(this.props.location.query.user) {
       var profile = <div></div>;
-      if(CURRENT_USER_ID !== 13)
+      if(CURRENT_USER_ID !== 16)
       {
         profile = <div className="user-profile">
                     <button onClick={this.editProfile} > Profile </button>

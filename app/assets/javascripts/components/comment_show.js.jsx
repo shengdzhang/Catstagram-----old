@@ -31,7 +31,12 @@ var CommentShow = React.createClass({
         <ul className="nested-comments group">
           {
               this.state.comments.map (function (comment, idx) {
-                var temp = comment.author.username + ": " + comment.body;
+                if (comment.author) {
+                  var temp = comment.author.username
+                } else {
+                  temp = "Guest"
+                }
+                temp += ": " + comment.body;
                 return (
                   <li key={comment.id}>{temp} </li>
                 )
@@ -40,8 +45,6 @@ var CommentShow = React.createClass({
           }
           <CommentForm type="Comment" typeId={this.props.commentId}/>
         </ul>
-        <br/>
-
       </div>
 
     );

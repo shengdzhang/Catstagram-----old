@@ -32,9 +32,8 @@
 }
 
 .comment-form {
-  width: 73%;
+  width: 85%;
   margin-left: 10px;
-  margin-top: 15px;
   height: 40px;
   float: left;
 }
@@ -44,13 +43,17 @@
   width: 100%;
   height: 38px;
   padding: 2px;
+  margin-top: 15px;
 }
 
 .Comment-input{
   border: 1px solid black;
   width: 100%;
-  height: 38px;
+  height: 24px;
   padding: 2px;
+  margin: 0;
+  font-size: 12px;
+  margin-left: -10px;
 }
 
 .media-submit-container{

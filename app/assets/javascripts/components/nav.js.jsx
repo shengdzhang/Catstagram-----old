@@ -29,7 +29,7 @@ var Nav = React.createClass ({
   render: function () {
     var username = "",
         note;
-    if (this.state.user.username || CURRENT_USER_ID === 13) {
+    if (this.state.user.username || CURRENT_USER_ID === CURRENT_USER_ID) {
       username = this.state.user.username || "Guest";
       note = <li> <span onClick={this.handleClickProfile}> {username} </span> <span onClick={this.handleLogOut}> Log out </span></li>;
     }

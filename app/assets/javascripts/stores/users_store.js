@@ -29,6 +29,10 @@
       return _users.slice();
     },
     getUser: function (id) {
+      if (id === 16)
+      {
+        return {id: 16, username: "Guest"};
+      }
       var idx = this.findUser(id);
       if(idx) {
         return _users[idx];
