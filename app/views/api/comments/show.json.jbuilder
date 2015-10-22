@@ -7,7 +7,7 @@ json.comments do
   json.array!(@comment.comments) do |comment|
     json.extract!(
       comment,
-      :id, :body, :author_id
+      :id, :body, :author_id, :commentable_id, :commentable_type
     )
 
     json.author do

@@ -209,5 +209,17 @@ var ApiUtil = {
         CommentsActions.getSingleComment(comment);
       }
     });
+  },
+
+  updateComment: function (id, text) {
+    $.ajax ({
+      url: "/api/comments/" +id,
+      method: "PATCH",
+      data: {"body": text},
+      datatype: "JSON",
+      success: function (comment) {
+        CommentsActions.updateSingleComment(comment);
+      }
+    });
   }
 };

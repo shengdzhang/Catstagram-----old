@@ -43,8 +43,12 @@ var UserEditpage = React.createClass ({
       ApiUtil.editUser(this.state.user.id, this.state.username, this.state.password, this.state.newPassword);
     }
   },
+  handleLink: function (e) {
+
+  },
   render: function () {
-    if (this.props.params.userId === "13") {
+    var url = this.state.url || "http://res.cloudinary.com/catstagram/image/upload/v1445014670/g6xesy4cm99zroz96rcc.png";
+    if (GUEST) {
       return (<div></div>);
     } else {
       return (
@@ -70,7 +74,14 @@ var UserEditpage = React.createClass ({
             <input type="text" onChange={this.changeNewPassword2} value={this.state.newPassword2}/>
             <br/>
             <input type="submit" onClick={this.onSubmit} value="Submit"/>
-        </form>
+          </form>
+          <div className="profile-image-wrapper">
+            <div className="profile-text"> Add a Profile Picture. </div>
+            <img className="profile-img" src={url}/>
+            <div className="profile-button-wrapper">
+              <button onClick={this.handleLink}> Upload </button>
+            </div>
+        </div>
         </div>
       );
     }

@@ -21,11 +21,9 @@ var CommentForm = React.createClass ({
       place = "Add Comment - Press enter to submit";
     }
     return (
-      <div>
         <div className="comment-form">
           <input className= {classes} type="text" placeholder={place} onKeyUp={this.handleKeyUp} onChange={this.textChange} value={this.state.text}></input>
         </div>
-      </div>
     )
   }
 });

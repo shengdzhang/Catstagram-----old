@@ -16,7 +16,11 @@
 }
 
 .nested-comments {
-  margin-left: 60px;
+  margin-left: 30px;
+}
+
+.nested-comments > .comment-form {
+  margin-left: 40px;
 }
 
 .comment-author {

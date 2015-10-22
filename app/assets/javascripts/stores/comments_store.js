@@ -35,6 +35,20 @@
     _comments.splice(idx, 1, comment);
     CommentsStore.emit(CHANGE_EVENT);
   };
+  var editComment = function (comment) {
+    if (comment.commentable_type === "Medium") {
+      _comments[findComment(comment.id)].body = comment.body;
+    }
+    else if (comment.commentable_type === "Comment") {
+      var nested = _comments[findComment(comment.commentable_id)].comments;
+      for (var i = 0; i < nested.length; i++) {
+        if (nested[i].id === comment.id) {
+          nested[i].body = comment.body;
+        }
+      }
+    }
+    CommentsStore.emit(CHANGE_EVENT);
+  };
 
   var CommentsStore = root.CommentsStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
@@ -64,6 +78,9 @@
           break;
         case CommentsConstants.REMOVE_SINGLE_COMMENT:
           removeComment(payload.comment);
+          break;
+        case CommentsConstants.UPDATE_COMMENT:
+          editComment(payload.comment);
           break;
       }
     })

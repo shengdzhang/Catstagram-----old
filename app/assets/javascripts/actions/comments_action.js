@@ -25,5 +25,12 @@ CommentsActions = {
       actionType: CommentsConstants.FETCH_COMMENT,
       comment: comment
     });
+  },
+
+  updateSingleComment: function (comment) {
+    AppDispatcher.dispatch({
+      actionType: CommentsConstants.UPDATE_COMMENT,
+      comment: comment
+    });
   }
 };
