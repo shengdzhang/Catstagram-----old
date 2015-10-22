@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require reset
+ *= require 0-reset
  *= require_tree .
  *= require_self
  */
@@ -23,15 +23,21 @@ body {
   padding: 0;
   width: 100%;
   position: relative;
+  overflow-y: hidden;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 20px;
 }
 
 #content {
-  margin-top: 15px;
+  overflow-y: hidden;
 }
 
 .pagewrapper {
-  height: 100vh;
-  margin-bottom: 100px;
-  margin-top: 70px;
+  height: calc(100vh - 80px);
   background-color: #FAFAFA;
+  overflow-y: scroll;
 }

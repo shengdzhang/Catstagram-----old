@@ -33,7 +33,7 @@ input.signing {
 }
 
 .formwrap {
-  width: 25%;
+  width: 300px;
   margin: auto;
   margin-top: 15px;
   background: rgba(255, 255, 255, 0.5);

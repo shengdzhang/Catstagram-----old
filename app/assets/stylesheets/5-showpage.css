@@ -1,11 +1,13 @@
 
 .profile {
   padding-top: 50px;
-  width: 600px;
+  width: 800px;
   margin: auto;
   text-align: center;
   padding-bottom: 70px;
   margin-bottom: 30px;
+  margin-top: 30px;
+  background: inherit;
   border: 1px solid black;
 }
 

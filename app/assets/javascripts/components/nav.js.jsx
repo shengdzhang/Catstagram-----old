@@ -31,14 +31,14 @@ var Nav = React.createClass ({
         note;
     if (this.state.user.username || CURRENT_USER_ID === CURRENT_USER_ID) {
       username = this.state.user.username || "Guest";
-      note = <li> <span onClick={this.handleClickProfile}> {username} </span> <span onClick={this.handleLogOut}> Log out </span></li>;
+      note = <li> <span className="user-name" onClick={this.handleClickProfile}> {username} </span> <span className="log-out" onClick={this.handleLogOut}> Log out </span></li>;
     }
     return (
       <div>
         {
-          <nav className='group'>
-            <ul className='navbar'>
-              <li onClick={this.handleClickHome}> Catstagram </li>
+          <nav className="group">
+            <ul className="navbar">
+              <li id="logo" onClick={this.handleClickHome}> Catstagram </li>
               <li> <Search/> </li>
               {note}
             </ul>

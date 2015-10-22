@@ -2,7 +2,7 @@
   float: right;
   width: 100px;
   height: 30px;
-  border-radius: 10%;
+  border-radius: 1%;
   outline: none;
   margin-top: -5px;
 }
@@ -15,7 +15,7 @@
   float: right;
   width: 100px;
   height: 30px;
-  border-radius: 10%;
+  border-radius: 1%;
   outline: none;
   margin-top: -5px;
   background-color: green;
