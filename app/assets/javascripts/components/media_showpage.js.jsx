@@ -77,9 +77,9 @@ var MediaShowpage = React.createClass({
           <div className="media-info">
             <span className="media-show-author">Author: {username}</span>
             {this.follow()}
-              {specialButton}
             <br/>
             <span className="media-show-likes">Likes: {likes} </span>
+            {specialButton}
           </div>
           <ul className="comments-list">
             {
