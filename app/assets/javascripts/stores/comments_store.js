@@ -49,6 +49,24 @@
     }
     CommentsStore.emit(CHANGE_EVENT);
   };
+  var deleteComment = function (comment) {
+    if (comment.commentable_type === "Medium") {
+      _comments.splice(findComment(comment.id),1);
+    }
+    else if (comment.commentable_type === "Comment") {
+      var idx = -1;
+      var nested = _comments[findComment(comment.commentable_id)].comments;
+      for (var i = 0; i < nested.length; i++) {
+        if (nested[i].id === comment.id) {
+          idx = i;
+        }
+      }
+      if (idx !== -1) {
+        nested.splice(idx, 1);
+      }
+    }
+    CommentsStore.emit(CHANGE_EVENT);
+  };
 
   var CommentsStore = root.CommentsStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
@@ -81,6 +99,9 @@
           break;
         case CommentsConstants.UPDATE_COMMENT:
           editComment(payload.comment);
+          break;
+        case CommentsConstants.DELETE_COMMENT:
+          deleteComment(payload.comment);
           break;
       }
     })

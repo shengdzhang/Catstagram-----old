@@ -27,9 +27,16 @@ CommentsActions = {
     });
   },
 
-  updateSingleComment: function (comment) {
+  changeSingleComment: function (comment) {
     AppDispatcher.dispatch({
       actionType: CommentsConstants.UPDATE_COMMENT,
+      comment: comment
+    });
+  },
+
+  deleteComment: function (comment) {
+    AppDispatcher.dispatch({
+      actionType: CommentsConstants.DELETE_COMMENT,
       comment: comment
     });
   }

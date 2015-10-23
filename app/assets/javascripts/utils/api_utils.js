@@ -218,7 +218,18 @@ var ApiUtil = {
       data: {"body": text},
       datatype: "JSON",
       success: function (comment) {
-        CommentsActions.updateSingleComment(comment);
+        CommentsActions.changeSingleComment(comment);
+      }
+    });
+  },
+
+  deleteComment: function (id) {
+    $.ajax ({
+      url: "/api/comments/" +id,
+      method: "DELETE",
+      datatype: "JSON",
+      success: function (comment) {
+        CommentsActions.deleteComment(comment);
       }
     });
   }

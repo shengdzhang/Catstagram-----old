@@ -15,6 +15,12 @@ var CommentItem = React.createClass({
   handleToggle: function () {
     this.setState({toggle: !this.state.toggle});
   },
+  commentDelete: function () {
+    var answer = confirm("Are you sure you want to delete this comment");
+    if(answer) {
+      ApiUtil.deleteComment(this.props.comment.id);
+    }
+  },
   commentContent: function () {
 
     if(this.props.comment.author_id === CURRENT_USER_ID) {
@@ -22,11 +28,11 @@ var CommentItem = React.createClass({
     } else {
       edit = ""
     }
-
     if(this.state.toggle){
       return (
         <div className="comment-edit-form">
           <input type="text" onKeyUp={this.handleKeyUp} onChange={this.textChange} value={this.state.body}></input>
+          <button className="comment-delete" onClick={this.commentDelete}>Delete</button>
         </div>
       );
     } else {
