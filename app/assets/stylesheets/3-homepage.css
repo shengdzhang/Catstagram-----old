@@ -4,22 +4,17 @@
   margin:auto;
   padding-top: 30px;
   padding-bottom: 25px;
+  text-align: center;
 }
 
 .suggest-wrapper {
   padding-bottom: 80px;
 }
 
-.suggest {
-  list-style: none;
-  border: 2px solid black;
-  width: 600px;
-  margin: auto;
+.suggest > a{
   margin-top: 1px;
   margin-bottom: 1px;
-  padding: 20px;
-  background-color: #FFFFFF;
-  border-radius: 10px;
+  color: #000;
 }
 
 .suggest > a {
@@ -28,4 +23,5 @@
 
 .suggest > a:hover {
   cursor: pointer;
+  text-decoration: none;
 }

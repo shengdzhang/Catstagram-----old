@@ -40,9 +40,10 @@ var UserProfile = React.createClass ({
       }
       //return for current user
       return (
-        <div className="profile group">
-          <div className="profile-picture"></div>
-            <div className="profile-wrapper-current">
+        <div className="profile group container col-xs-offset-2 col-xs-8">
+          <image className="profile-picture" src="http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"/>
+            <div className="profile-wrapper-current col-xs-offset-1 col-xs-6">
+              <br/>
               {name}
               <br/>
               {profile}
@@ -58,9 +59,9 @@ var UserProfile = React.createClass ({
     } else {
       //return for all other users
       return (
-        <div className="profile group">
-          <div className="profile-picture"></div>
-          <div className="profile-wrapper-foreign">
+        <div className="profile group container col-xs-offset-2 col-xs-8">
+          <image className="profile-picture" src="http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"/>
+          <div className="profile-wrapper-foreign col-xs-offset-1 col-xs-6">
             {name}
             <br/>
             <div className="show-follows">

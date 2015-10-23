@@ -1,13 +1,12 @@
 nav {
-  background: rgba(179,220,237,1);
-  background: rgba(239,197,202,1);
-  background: -moz-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(239,197,202,1)), color-stop(29%, rgba(210,75,90,1)), color-stop(62%, rgba(186,39,55,1)), color-stop(100%, rgba(241,142,153,1)));
-  background: -webkit-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
-  background: -o-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
-  background: -ms-linear-gradient(left, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
-  background: linear-gradient(to right, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 29%, rgba(186,39,55,1) 62%, rgba(241,142,153,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99', GradientType=1 );
+  background: rgb(181,189,200); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 40%, rgba(130,140,149,1) 40%, rgba(181,189,200,1) 79%, rgba(40,52,59,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(181,189,200,1)), color-stop(40%,rgba(130,140,149,1)), color-stop(40%,rgba(130,140,149,1)), color-stop(79%,rgba(181,189,200,1)), color-stop(100%,rgba(40,52,59,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 40%,rgba(130,140,149,1) 40%,rgba(181,189,200,1) 79%,rgba(40,52,59,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 40%,rgba(130,140,149,1) 40%,rgba(181,189,200,1) 79%,rgba(40,52,59,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 40%,rgba(130,140,149,1) 40%,rgba(181,189,200,1) 79%,rgba(40,52,59,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 40%,rgba(130,140,149,1) 40%,rgba(181,189,200,1) 79%,rgba(40,52,59,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
   width: 100%;
   height: 80px;
   position: relative;
@@ -16,10 +15,9 @@ nav {
   border-bottom: 1px solid #21D2D2
 }
 
-
 .navbar {
   list-style: none;
-  width: 900px;
+  width: 90%;
   margin: auto;
 }
 
@@ -31,17 +29,17 @@ nav {
   margin-right: 12.5%;
 }
 
-#logo {
+.logo {
   font-weight: bold;
   font-size: 18px;
   transition: 1s;
 }
 
-#logo:hover {
-  margin-top: 5px;
-  color: cornflowerblue;
+.logo:hover {
+  color: #888;
+  cursor: pointer;
+  text-shadow: 2px 3px 4px #FFF;
   transition: 1s;
-  font-size: 24px;
 }
 
 .navbar >li:last-child {
@@ -66,23 +64,21 @@ nav {
 }
 
 .log-out:hover {
-  color: cornflowerblue;
+  color: #888;
   cursor: pointer;
+  text-shadow: 2px 3px 4px #FFF;
   transition: 1s;
-  font-size: 24px;
-  margin-top: 0px;
 }
 
 .user-name:hover {
-  color: cornflowerblue;
+  color: #888;
   cursor: pointer;
+  text-shadow: 2px 3px 4px #FFF;
   transition: 1s;
-  font-size: 24px;
-  margin-top: 0px;
 }
 
 #searchbar {
-  width: 100%;
+  width: 200px;
   margin-top: 5px;
   position: relative;
   cursor: default;
@@ -92,15 +88,22 @@ nav {
 }
 
 #searchglass {
+  width: 10%;
   float: left;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #searchbar > input {
+  width: 85%;
   float: left;
   text-align: center;
   border: none;
+  padding-right: 30px;
+}
+
+#searchbar > input:hover {
+  cursor: text;
 }
 
 #searchbar > input:focus {

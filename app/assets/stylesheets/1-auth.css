@@ -1,14 +1,14 @@
 .auth-wrap {
   width: inherit;
   position: absolute;
-  margin: 0;
   background: url("http://res.cloudinary.com/catstagram/image/upload/v1445459344/2012_Suedchinesischer_Tiger_yxztht.jpg");
   background-size: cover;
-  padding: 0;
+  background-position: center;
   height: 100vh;
-  overflow-y: hidden;
-  left: 0;
-  top: 0;
+}
+
+.auth-wrap h1 {
+  text-shadow: 2px 4px 5px #666;
 }
 
 #signup-message a{
@@ -32,10 +32,8 @@ input.signing {
   font-size: 14px;
 }
 
-.formwrap {
-  width: 300px;
-  margin: auto;
-  margin-top: 15px;
+.form-wrap {
+  margin-bottom: 50px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid gray;
   border-radius: 5%;

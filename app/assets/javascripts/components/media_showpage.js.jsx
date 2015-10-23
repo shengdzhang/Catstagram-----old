@@ -71,15 +71,16 @@ var MediaShowpage = React.createClass({
       username = this.state.user.username;
     }
     return (
-      <div className="media-show">
+      <div className="media-show container col-xs-offset-1 col-xs-10">
         <img src={this.state.media.link}/>
-        <div className="media-info">
-          <span className="media-show-author">Author: {username}</span>
-          {this.follow()}
-          <br/>
-          <span className="media-show-likes">Likes: {likes} </span>
-        </div>
-        <div className="media-comments">
+        <div className="media-comments col-xs-5">
+          <div className="media-info">
+            <span className="media-show-author">Author: {username}</span>
+            {this.follow()}
+              {specialButton}
+            <br/>
+            <span className="media-show-likes">Likes: {likes} </span>
+          </div>
           <ul className="comments-list">
             {
               this.state.comments.map(function (comment, idx){
@@ -88,9 +89,6 @@ var MediaShowpage = React.createClass({
             }
           </ul>
           <div className="comment-wrap">
-            <div className="media-button-container">
-              {specialButton}
-            </div>
 
             <CommentForm typeId={this.state.media.id} type="Medium"/>
 

@@ -1,17 +1,18 @@
 .comments-list {
-  width: inherit;
-  height: 307px;
+  height: 215px;
   border: 1px solid black;
   overflow-y: scroll;
   border-radius: 2px;
+  background-color: #FFF;
+  border-radius: 5px;
 }
-
 
 .comment-wrap {
   margin-top: 5px;
-  width: inherit;
   height: 75px;
   border: 1px solid black;
+  border-radius: 5px;
+  background-color: #FFF;
   border-radius: 5px;
 }
 

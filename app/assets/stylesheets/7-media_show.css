@@ -1,29 +1,41 @@
 .media-show {
   padding-top: 70px;
-  width: 1200px;
-  margin: auto;
 }
 
 .media-show > img {
-  width: 640px;
-  height: 480px;
+  height: 350px;
+  width: 350px;
   float: left;
   border: 1px solid black;
   border-radius: 5%;
+  margin-right: 5px;
+}
+
+.media-comments {
+  float: right;
+}
+
+.media-show-follow > .Follow {
+  width: 80px;
+  height: 24px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 
 .media-show-author {
   margin-left: 30px;
 }
 
-.media-show-follow > .Follow {
-  margin-top: 20px;
+.media-show-follow > .Unfollow {
+  width: 80px;
+  height: 24px;
+  margin-top: 5px;
   margin-right: 10px;
 }
 
-.media-show-follow > .Unfollow {
-  margin-top: 20px;
-  margin-right: 10px;
+.comment-wrap > .comment-form > input {
+  margin-left: 10px;
+
 }
 
 .media-show-likes {
@@ -32,15 +44,7 @@
 
 .media-info {
   border: 1px solid black;
-  float: right;
-  width: 550px;
-  height: 80px;
   margin-bottom: 5px;
   border-radius: 5px;
-}
-
-.media-comments {
-  float: right;
-  width: 550px;
-  height: 307px;
+  background-color: #FFF;
 }
