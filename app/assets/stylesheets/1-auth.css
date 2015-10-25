@@ -1,5 +1,5 @@
 .auth-wrap {
-  width: inherit;
+  width: 100%;
   position: absolute;
   background: url("http://res.cloudinary.com/catstagram/image/upload/v1445459344/2012_Suedchinesischer_Tiger_yxztht.jpg");
   background-size: cover;
@@ -22,7 +22,7 @@
 .signing {
   color: #666699;
   margin: auto;
-  width: 200px;
+  width: 80%;
   padding: 2px;
   height: 15px;
 }

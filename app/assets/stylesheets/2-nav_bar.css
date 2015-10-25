@@ -116,20 +116,21 @@ nav {
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
-  opacity: 0;
   margin-top: 50px;
+  z-index: 1;
+  opacity: 0;
 }
 
 .dropdowner > li {
   border: 1px solid #ccc;
-  width: 0px;
   color: #000;
   background-color: #fff;
   text-align: left;
   padding-left: 10px;
+  width: 0px;
+  transition: 0.5s;
   display: block;
   cursor: default;
-  transition: 0.5s;
 }
 
 #searchbar>input:focus ~ .dropdowner{
@@ -145,5 +146,4 @@ nav {
     display: block;
     cursor: pointer;
     background-color: #eee;
-
 }
