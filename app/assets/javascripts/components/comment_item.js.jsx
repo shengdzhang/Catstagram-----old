@@ -13,7 +13,7 @@ var CommentItem = React.createClass({
     }
   },
   handleToggle: function () {
-    this.setState({toggle: !this.state.toggle});
+    this.setState({toggle: !this.state.toggle, body: this.props.comment.body});
   },
   commentDelete: function () {
     var answer = confirm("Are you sure you want to delete this comment");
