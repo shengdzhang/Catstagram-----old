@@ -1,15 +1,8 @@
 
-##add/show description options for user
-
-password update should be separate
+-----##add/show description options for user
 
 show title on hover for media as well as likes/comments # didn't work
 
-show pictures on front page
-
-nest routes for media show and have overlay
-
-repeat for user edit and media edit
 
 randomize suggested user based on media #
 
@@ -23,4 +16,8 @@ infinite scroll for media indexing
 
 redo errors
 
-seed heroku database
+seed heroku database------
+
+nest routes for media show and have overlay
+
+repeat for user edit and media edit

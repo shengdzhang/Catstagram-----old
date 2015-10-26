@@ -60,8 +60,8 @@ var UserProfile = React.createClass ({
       //return for all other users
       return (
         <div className="profile group container col-xs-offset-2 col-xs-8">
-          <image className="profile-picture" src={this.props.user.link}/>
-          <div className="profile-wrapper-foreign col-xs-offset-1 col-xs-6">
+          <image className="profile-picture col-xs-offset-2" src={this.props.user.link}/>
+          <div className="profile-wrapper-foreign col-xs-6">
             {name}
             <br/>
             <FollowButton followees={this.props.followees} idx={this.props.user.id}/>

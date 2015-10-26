@@ -126,7 +126,6 @@ var ApiUtil = {
       data: {"user_id": id},
       datatype: "JSON",
       success: function(media) {
-        debugger;
         MediaActions.getMedia(media);
       }
     });

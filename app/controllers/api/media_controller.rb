@@ -3,6 +3,7 @@ class Api::MediaController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @media = @user.media
+    render json: @media
   end
 
   def create
