@@ -1,0 +1,31 @@
+add profile pictures and show thumbnails
+
+migrate another link
+
+add/show description options for user
+
+password update should be separate
+
+show profile pictures on everything with user
+
+redo follows and likes
+
+show title on hover for media as well as likes/comments
+
+show pictures on front page
+
+nest routes for media show and have overlay
+
+repeat for user edit and media edit
+
+randomize suggested user based on media #
+
+smoother navigation
+
+add tour
+
+drag to reorder media
+
+infinite scroll for media indexing
+
+seed heroku database
