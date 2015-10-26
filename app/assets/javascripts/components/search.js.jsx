@@ -36,10 +36,10 @@ var Search = React.createClass ({
     return (
       <div id="searchbar" className="group">
         <div id="searchglass">{placeholder}</div><input onChange={this.handleChange} name="search" type="text" value={this.state.searchQuery} placeholder=" Search"/>
-        <ul className="dropdowner">
+        <ul className="list-group dropdowner">
           {
               names.map(function(user, idx){
-              return <li key={idx} onClick={self.handleClick.bind(self, user.id)}> {user.username} </li>
+              return <li className="list-group-item" key={idx} onClick={self.handleClick.bind(self, user.id)}> {user.username} </li>
             })
           }
         </ul>

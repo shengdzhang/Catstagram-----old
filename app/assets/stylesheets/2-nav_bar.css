@@ -19,6 +19,7 @@ nav {
   list-style: none;
   width: 90%;
   margin: auto;
+  font-family: 'Lobster', cursive;
 }
 
 .navbar > li {
@@ -29,9 +30,11 @@ nav {
   margin-right: 12.5%;
 }
 
-.logo {
+.navbar > .logo {
+  font-family: 'Lovers Quarrel', cursive;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 36px;
+  padding-top: 0px;
   transition: 1s;
 }
 

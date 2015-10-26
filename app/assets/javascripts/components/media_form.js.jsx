@@ -27,13 +27,14 @@ var MediaForm = React.createClass ({
   },
   handleLink: function (e) {
     e.preventDefault();
-    cloudinary.openUploadWidget({upload_preset: window.cloudinary_upload_preset, cloud_name: window.cloudinary_cloud_name}, this.handleResponse);
+    var options = {upload_preset: window.cloudinary_upload_preset, cloud_name: window.cloudinary_cloud_name};
+    cloudinary.openUploadWidget(options, this.handleResponse);
   },
   handleResponse: function (error, result) {
     if(error) {
       console.log(error);
     } else {
-      var url = result[0].url;
+      var url = result[0].secure_url;
       this.setState({url: url});
     }
   },

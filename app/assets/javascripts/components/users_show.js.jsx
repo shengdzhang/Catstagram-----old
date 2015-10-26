@@ -38,7 +38,7 @@ var UserShowpage = React.createClass ({
   voidMedia: function () {
     if (this.state.media.length === 0) {
       return (
-        <div className="showpage-nomedia container col-xs-offset-2 col-xs-6"> No photos to show. </div>
+        <div className="showpage-nomedia container col-xs-offset-2 col-xs-7"> No photos to show. </div>
       );
     } else {
       return (
