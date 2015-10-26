@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.link = "http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"
     if @user.save
       log_in(@user)
       redirect_to root_url
@@ -28,14 +29,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if (@user.valid_password?(params[:password]))
-      @user.update!(username: params[:new_name], password: params[:new_password])
+      @user.update!(username: params[:new_name], password: params[:new_password], link: params[:link])
+    else
+      @user.update!(username: params[:new_name], link: params[:link])
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :username, :link)
   end
 
 end

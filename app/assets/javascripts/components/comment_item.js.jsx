@@ -43,11 +43,14 @@ var CommentItem = React.createClass({
   },
   render: function () {
     var author = "";
+    var link = "";
     if(this.props.comment.author){
       author = this.props.comment.author.username;
+      link = this.props.comment.author.link;
     }
     return (
-      <li>
+      <li className="list-group-item">
+        <img className="thumbnail" src={link}/>
         <span className="comment-author"> {author}: </span>
         <br/>
         {this.commentContent()}

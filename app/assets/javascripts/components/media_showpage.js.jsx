@@ -62,13 +62,17 @@ var MediaShowpage = React.createClass({
   render: function () {
     var specialButton = <LikeButton likes={this.state.likes} mediaId={this.state.media.id}/>;
     if (this.state.media.author_id === CURRENT_USER_ID) {
-      specialButton = <button onClick={this.editMedia}> Edit </button>
+      specialButton = <button onClick={this.editMedia}> Edit Media</button>
     }
     var likes = 0,
-        username = "";
+        username = "",
+        desc = "";
     if (this.state.user){
       likes = this.state.likeNumber;
       username = this.state.user.username;
+    }
+    if (this.state.media.description) {
+      desc = "Description: "+ this.state.media.description
     }
     return (
       <div className="media-show container col-xs-offset-1 col-xs-10">
@@ -80,6 +84,7 @@ var MediaShowpage = React.createClass({
             <br/>
             <span className="media-show-likes">Likes: {likes} </span>
             {specialButton}
+            <div className="media-show-desc">{desc}</div>
           </div>
           <ul className="comments-list">
             {

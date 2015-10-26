@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
 
   def self.guest
     user = User.find_by_username("Guest")
-    user = User.create({username: "Guest", password: SecureRandom.urlsafe_base64(16).to_s}) unless (user)
+    user = User.create({username: "Guest", password: SecureRandom.urlsafe_base64(16).to_s, link: "http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"}) unless (user)
     return user
   end
 

@@ -1,7 +1,4 @@
-json.extract!(
-  @medium,
-  :id, :title, :description, :author_id, :link
-)
+json.partial! 'media/medium', medium: @medium
 
 json.likes do
   json.array!(@medium.likes) do |like|

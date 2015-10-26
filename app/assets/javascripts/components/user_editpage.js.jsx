@@ -4,7 +4,7 @@ var UserEditpage = React.createClass ({
   getInitialState: function () {
     var user = UsersStore.getCurrentUser();
     if (user) {
-      return {user: user, username: user.username, password: "", newPassword: "", newPassword2: ""};
+      return {user: user, username: user.username, password: "", newPassword: "", newPassword2: "", url: user.link};
     } else {
       return {};
     }
@@ -14,7 +14,7 @@ var UserEditpage = React.createClass ({
     UsersStore.addUpdateListener(this.onUpdate);
   },
   onChange: function () {
-    this.setState({user: UsersStore.getCurrentUser(), username: UsersStore.getCurrentUser().username});
+    this.setState({user: UsersStore.getCurrentUser(), username: UsersStore.getCurrentUser().username, url: UsersStore.getCurrentUser().link});
   },
   componentWillUnmount: function () {
     UsersStore.removeChangeListener(this.onChange);
@@ -40,11 +40,21 @@ var UserEditpage = React.createClass ({
   onSubmit: function (e) {
     e.preventDefault();
     if (this.state.newPassword === this.state.newPassword2) {
-      ApiUtil.editUser(this.state.user.id, this.state.username, this.state.password, this.state.newPassword);
+      ApiUtil.editUser(this.state.user.id, this.state.username, this.state.password, this.state.newPassword, this.state.url);
     }
   },
   handleLink: function (e) {
-
+    e.preventDefault();
+    var options = {upload_preset: window.cloudinary_upload_preset, cloud_name: window.cloudinary_cloud_name};
+    cloudinary.openUploadWidget(options, this.handleResponse);
+  },
+  handleResponse: function (error, result) {
+    if(error) {
+      console.log(error);
+    } else {
+      var url = result[0].secure_url;
+      this.setState({url: url});
+    }
   },
   render: function () {
     var url = this.state.url || "http://res.cloudinary.com/catstagram/image/upload/v1445014670/g6xesy4cm99zroz96rcc.png";
@@ -76,7 +86,7 @@ var UserEditpage = React.createClass ({
             <input type="submit" onClick={this.onSubmit} value="Submit"/>
           </form>
           <div className="profile-image-wrapper">
-            <div className="profile-text"> Add a Profile Picture. </div>
+            <div className="profile-text"> Change Profile Picture. </div>
             <img className="profile-img" src={url}/>
             <div className="profile-button-wrapper">
               <button onClick={this.handleLink}> Upload </button>

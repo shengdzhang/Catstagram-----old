@@ -1,16 +1,9 @@
-add profile pictures and show thumbnails
 
-migrate another link
-
-add/show description options for user
+##add/show description options for user
 
 password update should be separate
 
-show profile pictures on everything with user
-
-redo follows and likes
-
-show title on hover for media as well as likes/comments
+show title on hover for media as well as likes/comments # didn't work
 
 show pictures on front page
 
@@ -27,5 +20,7 @@ add tour
 drag to reorder media
 
 infinite scroll for media indexing
+
+redo errors
 
 seed heroku database

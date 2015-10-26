@@ -5,11 +5,12 @@
 var UserShowpage = React.createClass ({
   mixins: [ReactRouter.History],
   getInitialState: function () {
-    return {userId: parseInt(this.props.params.userId), media: [], user: UsersStore.getShowUser(), followers: []};
+    return {userId: parseInt(this.props.params.userId), media: [], user: UsersStore.getShowUser(), followers: [], followees: []};
   },
   componentDidMount: function () {
     UsersStore.addChangeListener(this.onUserChange);
     MediaStore.addChangeListener(this.onMediaChange);
+    FollowsStore.addChangeListener(this.onFollowsChange);
     ApiUtil.getSingleUser(this.state.userId);
     ApiUtil.getMedia(this.state.userId);
   },
@@ -24,12 +25,16 @@ var UserShowpage = React.createClass ({
   componentWillUnmount: function () {
     MediaStore.removeChangeListener(this.onMediaChange);
     UsersStore.removeChangeListener(this.onUserChange);
+    FollowsStore.removeChangeListener(this.onFollowsChange);
+  },
+  onFollowsChange: function () {
+    this.setState({followees: FollowsStore.all()});
   },
   componentWillReceiveProps: function(val) {
-      var id = val.params.userId;
-      ApiUtil.getSingleUser(id);
-      ApiUtil.getMedia(id);
-      this.setState({userId: id});
+    var id = val.params.userId;
+    ApiUtil.getSingleUser(id);
+    ApiUtil.getMedia(id);
+    this.setState({userId: id});
   },
   pathMedia: function (id, e) {
     var url = "media/" + id;
@@ -50,11 +55,15 @@ var UserShowpage = React.createClass ({
 
     return (
       <div id="show-wrapper">
-        <UserProfile user={this.state.user} followers={this.state.followers} current={this.props.location.query.user}/>
+        <UserProfile user={this.state.user} followees={this.state.followees} followers={this.state.followers} current={this.props.location.query.user}/>
         <ul className="media-list">
           {
             this.state.media.map(function (media){
-                return <li className='media' key={media.id}><a draggable="true" onClick={this.pathMedia.bind(this, media.id)}><image className="user-show-img" src={media.link}/> </a></li>
+                return <li className='media' key={media.id}>
+                        <a draggable="true" title={media.title} onClick={this.pathMedia.bind(this, media.id)}>
+                          <image className="user-show-img" src={media.link}/>
+                        </a>
+                       </li>
             }.bind(this))
           }
         </ul>

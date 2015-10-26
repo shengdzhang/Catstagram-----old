@@ -93,3 +93,8 @@
 .user-show-img:hover {
   cursor: pointer;
 }
+
+.media-overlay {
+  width: inherit;
+  height: inherit;
+}

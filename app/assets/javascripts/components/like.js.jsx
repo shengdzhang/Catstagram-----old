@@ -19,7 +19,7 @@ var LikeButton = React.createClass ({
     var idx = parseInt(this.props.mediaId);
     for (var i = 0; i < likes.length; i++) {
       if (idx === likes[i].media_id) {
-        name = " :( ";
+        name = "Unlike";
         this.state.id = likes[i].id;
         click = this.handleClickUnlike;
       }

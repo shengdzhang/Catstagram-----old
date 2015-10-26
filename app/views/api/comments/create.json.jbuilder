@@ -6,6 +6,6 @@ json.extract!(
 json.author do
   json.extract!(
     @comment.user,
-    :id, :username
+    :id, :username, :link
   )
 end

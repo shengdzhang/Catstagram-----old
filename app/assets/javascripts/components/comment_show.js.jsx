@@ -20,7 +20,7 @@ var CommentShow = React.createClass({
     return (
       <div>
         <CommentItem comment={this.state.comment}/>
-        <ul className="nested-comments group">
+        <ul className="nested-comments list-group group">
           {
               this.state.comments.map (function (comment, idx) {
                 return <CommentItem key={comment.id} comment={comment}/>

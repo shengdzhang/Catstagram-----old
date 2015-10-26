@@ -36,13 +36,13 @@ var UserProfile = React.createClass ({
                     <button onClick={this.editProfile} > Edit Profile </button>
                   </div>;
       } else {
-        followPhrase = "";
+        followPhrase = "Guest has limited features. Please sign up for full features.";
       }
       //return for current user
       return (
         <div className="profile group container col-xs-offset-2 col-xs-8">
-          <image className="profile-picture" src="http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"/>
-            <div className="profile-wrapper-current col-xs-offset-1 col-xs-6">
+          <image className="profile-picture col-xs-offset-2" src={this.props.user.link}/>
+            <div className="profile-wrapper-current col-xs-6">
               <br/>
               {name}
               <br/>
@@ -60,10 +60,11 @@ var UserProfile = React.createClass ({
       //return for all other users
       return (
         <div className="profile group container col-xs-offset-2 col-xs-8">
-          <image className="profile-picture" src="http://res.cloudinary.com/catstagram/image/upload/v1445632575/Anonymous_denjpa.png"/>
+          <image className="profile-picture" src={this.props.user.link}/>
           <div className="profile-wrapper-foreign col-xs-offset-1 col-xs-6">
             {name}
             <br/>
+            <FollowButton followees={this.props.followees} idx={this.props.user.id}/>
             <div className="show-follows">
               {followPhrase}
             </div>

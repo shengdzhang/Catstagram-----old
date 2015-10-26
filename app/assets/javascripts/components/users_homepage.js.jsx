@@ -35,7 +35,11 @@ var UserHomepage = React.createClass ({
         <ul className="suggest-wrapper list-group group col-xs-offset-3 col-xs-6">
             {
               this.state.users.map(function (user, idx){
-                  return <li className='list-group-item suggest' key={idx}><a onClick={this.clickHandler.bind(this, user.id)}> {user.username} </a><FollowButton followees={this.state.currentFollowees} idx={user.id}/> </li>
+                  return <li className='list-group-item suggest group' key={idx}>
+                            <img className='thumbnail' src={user.link}/>
+                            <a onClick={this.clickHandler.bind(this, user.id)}> {user.username} </a>
+                            <FollowButton followees={this.state.currentFollowees} idx={user.id}/>
+                        </li>
               }.bind(this))
             }
           </ul>

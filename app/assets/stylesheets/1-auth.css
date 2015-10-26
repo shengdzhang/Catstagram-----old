@@ -32,13 +32,13 @@ input.signing {
   font-size: 14px;
 }
 
-.form-wrap {
+.auth-wrap > .form-wrap {
   margin-bottom: 50px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid gray;
   border-radius: 5%;
-  padding: 50px;
-  padding-right: 0px;
+  padding: 20px;
+  width: 300px;
 }
 
 #guest-button {

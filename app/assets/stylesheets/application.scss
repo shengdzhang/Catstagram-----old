@@ -25,6 +25,12 @@ body {
   overflow-y: hidden;
 }
 
+button {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
 .welcome {
   color: white;
   text-align: center;

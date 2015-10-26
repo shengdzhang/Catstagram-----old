@@ -22,6 +22,7 @@
   height: 195px;
   font-size: 18px;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 .media-img {
@@ -30,12 +31,14 @@
   height: 250px;
   border: 1px solid black;
   border-radius: 10%;
+  background-color: #fff;
 }
 
 .media-submit {
   width: 150px;
   height: 20px;
   margin-left: 15%;
+  line-height: 0;
 }
 
 .media-upload-button {
@@ -43,13 +46,16 @@
   height: 20px;
   margin-top: 20px;
   margin-left: 40%;
+  line-height: 0;
 }
 
 .media-reset {
   width: 100px;
   height: 20px;
-  margin-top: 20px;
+  margin-top: 23px;
   margin-left: 10%;
+  line-height: 0;
+
 }
 
 .media-form .column1 {

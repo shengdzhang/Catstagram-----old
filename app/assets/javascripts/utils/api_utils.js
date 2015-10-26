@@ -27,11 +27,11 @@ var ApiUtil = {
     });
   },
 
-  editUser: function (id, newUsername, password, newPassword) {
+  editUser: function (id, newUsername, password, newPassword, link) {
     $.ajax ({
       url: "/users/" + id,
       method: "PATCH",
-      data: {new_name: newUsername, password: password, new_password: newPassword},
+      data: {new_name: newUsername, password: password, new_password: newPassword, link: link},
       datatype: "JSON",
       success: function(user) {
         UsersActions.updateUser(user);
